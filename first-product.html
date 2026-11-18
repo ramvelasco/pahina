@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Don't Be Late Tee - PAH/NA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pahina.css">
+</head>
+<body>
 
+  <main class="content">
+
+  <p class="path"><a href="index.html">Home</a>/<a href="shop.html">Shop</a>/Don't Be Late Tee</p>
+
+  <div class="wrapper">
+
+    <!-- left side: pictures -->
+    <div class="left">
+      <div class="big-box">
+        <div class="small-pics">
+          <img src="images/dbl-white-1.png" alt="">
+          <img src="images/dbl-white-2.png" alt="">
+          <img src="images/dbl-white-3.png" alt="">
+        </div>
+        <p class="small-text">don't be late</p>
+        <p class="color-name">White</p>
+        <div class="shirts">
+          <div>
+            <img src="images/dbl-white-front.png" alt="white tee front">
+            <p>front</p>
+          </div>
+          <div>
+            <img src="images/dbl-white-back.png" alt="white tee back">
+            <p>back</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="other-colors">
+        <div class="box pink"><img src="images/dbl-brown.png" alt="brown tee"></div>
+        <div class="box yellow"><img src="images/dbl-black.png" alt="black tee"></div>
+      </div>
+    </div>
+
+    <!-- right side: info -->
+    <div class="right">
+      <h1>Don't Be Late Tee</h1>
+      <h2>₱499</h2>
+      <p>A casual tee for making room for new beginnings. Lightweight and easy to style.</p>
+      <p><b>Fabric:</b> 100% Cotton</p>
+
+      <h3>Color</h3>
+      <div class="colors">
+        <input type="radio" name="color" id="white" checked>
+        <label for="white" class="dot white"></label>
+        <input type="radio" name="color" id="brown">
+        <label for="brown" class="dot brown"></label>
+        <input type="radio" name="color" id="black">
+        <label for="black" class="dot black"></label>
+      </div>
+
+      <h3>Size</h3>
+      <div class="sizes">
+        <input type="radio" name="size" id="xxs"><label for="xxs">XXS</label>
+        <input type="radio" name="size" id="xs"><label for="xs">XS</label>
+        <input type="radio" name="size" id="s"><label for="s">S</label>
+        <input type="radio" name="size" id="m"><label for="m">M</label>
+        <input type="radio" name="size" id="l"><label for="l">L</label>
+        <input type="radio" name="size" id="xl"><label for="xl">XL</label>
+        <input type="radio" name="size" id="xxl"><label for="xxl">XXL</label>
+      </div>
+
+      <h3>Quantity</h3>
+      <div class="quantity">
+        <button onclick="change(-1)">-</button>
+        <span id="count">0</span>
+        <button onclick="change(1)">+</button>
+      </div>
+
+      <div class="buttons">
+        <button class="order">Order Now</button>
+        <button class="cart">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="product-footer">
+    <div class="product-footer-main">
+      <div class="product-footer-brand">
+        <p class="product-footer-logo">PAH/NA</p>
+        <p class="product-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
+      </div>
+
+      <div class="product-footer-column">
+        <h4>EXPLORE</h4>
+        <a href="index.html">Home</a>
+        <a href="pages/shop.html">Shop</a>
+        <a href="pages/about.html">About Us</a>
+        <a href="pages/contact.html">Contact Us</a>
+      </div>
+
+      <div class="product-footer-column">
+        <h4>INFORMATION</h4>
+        <a href="pages/privacy.html">Privacy Policy</a>
+        <a href="pages/terms.html">Terms of Use</a>
+        <a href="pages/faqs.html">FAQs</a>
+      </div>
+
+      <div class="product-footer-column">
+        <h4>FOLLOW PAH/NA</h4>
+        <!-- will replace the # with the real links -->
+        <div class="product-socials">
+          <a href="#" class="icon-placeholder" aria-label="Facebook">f</a>
+          <a href="#" class="icon-placeholder" aria-label="Instagram">ig</a>
+          <a href="#" class="icon-placeholder" aria-label="Messenger">m</a>
+          <a href="#" class="icon-placeholder" aria-label="Threads">@</a>
+          <a href="#" class="icon-placeholder" aria-label="X">x</a>
+          <a href="#" class="icon-placeholder" aria-label="TikTok">tt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="product-copyright">
+    <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="pages/privacy.html">Privacy</a> &amp; <a href="pages/terms.html">Terms</a></p>
+  </div>
+
+  <script src="pahina.js"></script>
+
+</body>
+</html>
