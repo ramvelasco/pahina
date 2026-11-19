@@ -4,10 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Don't Be Late Tee - PAH/NA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="pahina.css">
 </head>
 <body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="PAH/NA home">
+      <span class="logo-text">PAH/NA</span>
+      <svg class="logo-book" viewBox="0 0 100 30" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M2 4 Q30 4 50 22 Q70 4 98 4"/>
+        <path d="M2 11 Q30 11 50 28 Q70 11 98 11"/>
+      </svg>
+    </a>
+
+    <nav aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" aria-current="page">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a href="#" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M17 18l3 3"/></svg>
+      </a>
+      <a href="#" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-5.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.5-8 11-8 11z"/></svg>
+      </a>
+      <a href="#" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l1 12H4z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="18" cy="19" r="3.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" aria-label="Profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M12 10l6 6-6 6-6-6z"/></svg>
+      </a>
+    </div>
+  </header>
 
   <main class="content">
 
@@ -52,23 +87,20 @@
 
       <h3>Color</h3>
       <div class="colors">
-        <input type="radio" name="color" id="white" checked>
-        <label for="white" class="dot white"></label>
-        <input type="radio" name="color" id="brown">
-        <label for="brown" class="dot brown"></label>
-        <input type="radio" name="color" id="black">
-        <label for="black" class="dot black"></label>
+        <label><input type="radio" name="color" checked><span class="dot white"></span></label>
+        <label><input type="radio" name="color"><span class="dot brown"></span></label>
+        <label><input type="radio" name="color"><span class="dot black"></span></label>
       </div>
 
       <h3>Size</h3>
       <div class="sizes">
-        <input type="radio" name="size" id="xxs"><label for="xxs">XXS</label>
-        <input type="radio" name="size" id="xs"><label for="xs">XS</label>
-        <input type="radio" name="size" id="s"><label for="s">S</label>
-        <input type="radio" name="size" id="m"><label for="m">M</label>
-        <input type="radio" name="size" id="l"><label for="l">L</label>
-        <input type="radio" name="size" id="xl"><label for="xl">XL</label>
-        <input type="radio" name="size" id="xxl"><label for="xxl">XXL</label>
+        <label><input type="radio" name="size"><span>XXS</span></label>
+        <label><input type="radio" name="size"><span>XS</span></label>
+        <label><input type="radio" name="size"><span>S</span></label>
+        <label><input type="radio" name="size"><span>M</span></label>
+        <label><input type="radio" name="size"><span>L</span></label>
+        <label><input type="radio" name="size"><span>XL</span></label>
+        <label><input type="radio" name="size"><span>XXL</span></label>
       </div>
 
       <h3>Quantity</h3>
@@ -99,16 +131,16 @@
       <div class="product-footer-column">
         <h4>EXPLORE</h4>
         <a href="index.html">Home</a>
-        <a href="pages/shop.html">Shop</a>
-        <a href="pages/about.html">About Us</a>
-        <a href="pages/contact.html">Contact Us</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
       </div>
 
       <div class="product-footer-column">
         <h4>INFORMATION</h4>
-        <a href="pages/privacy.html">Privacy Policy</a>
-        <a href="pages/terms.html">Terms of Use</a>
-        <a href="pages/faqs.html">FAQs</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="faqs.html">FAQs</a>
       </div>
 
       <div class="product-footer-column">
@@ -127,7 +159,7 @@
   </footer>
 
   <div class="product-copyright">
-    <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="pages/privacy.html">Privacy</a> &amp; <a href="pages/terms.html">Terms</a></p>
+    <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
   </div>
 
   <script src="pahina.js"></script>
