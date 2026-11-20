@@ -114,6 +114,12 @@ input, textarea, button, select {
     height: auto; 
 }
 
+.home-nav-links a.active {
+  background: linear-gradient(#7a6558, #5a463b);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .nav-list { 
     display: flex;
     align-items: center;
@@ -128,9 +134,10 @@ input, textarea, button, select {
     font-weight: 500; 
 }
 
-.nav-list a:hover, 
 .nav-list a[aria-current="page"] {
-     text-decoration: underline; 
+  background: linear-gradient(#7a6558, #5a463b);
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 /* ========================================
