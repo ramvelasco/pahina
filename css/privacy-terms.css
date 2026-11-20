@@ -327,7 +327,6 @@ main{
 .terms-footer {
   background-color: #f5cbd6;
   padding: 30px 90px;
-  border-top: 3px solid var(--border);
 }
 
 .privacy-footer-main,
@@ -405,7 +404,6 @@ main{
     color: var(--cream);
     text-align: center;
     padding: 35px 20px;
-    border-top: 3px solid var(--border);
     font-size: 0.9rem;
 }
 
