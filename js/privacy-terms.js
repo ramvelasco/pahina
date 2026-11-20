@@ -30,7 +30,8 @@ if (privacyAgree && privacyDisagree && privacyAgreement && privacyMessage) {
         localStorage.setItem("privacyChoice", "agreed");
 
         privacyMessage.textContent = "Thank you! You have acknowledged our Privacy Policy.";
-        privacyAgreement.style.display = "none";   
+        privacyAgreement.style.display = "none";
+        privacyMessage.focus();
     });
     
     privacyDisagree.addEventListener("click", function () {
@@ -38,6 +39,7 @@ if (privacyAgree && privacyDisagree && privacyAgreement && privacyMessage) {
 
         privacyMessage.textContent = "You have not acknowledged our Privacy Policy.";
         privacyAgreement.style.display = "none";
+        privacyMessage.focus();
     });
 }
 
@@ -53,8 +55,9 @@ if (termsAgree && termsDisagree && termsAgreement && termsMessage) {
     termsAgree.addEventListener("click", function () {
         localStorage.setItem("termsChoice", "agreed");
 
-        termsMessage.textContent = "Thank you! You have acknowledge our Terms of Use.";
-        termsAgreement.style.display = "none";   
+        termsMessage.textContent = "Thank you! You have acknowledged our Terms of Use.";
+        termsAgreement.style.display = "none";
+        termsMessage.focus();
     });
     
     termsDisagree.addEventListener("click", function () {
@@ -62,6 +65,7 @@ if (termsAgree && termsDisagree && termsAgreement && termsMessage) {
 
         termsMessage.textContent = "You have not acknowledged our Terms of Use.";
         termsAgreement.style.display = "none";
+        termsMessage.focus();
     });
 }
 
