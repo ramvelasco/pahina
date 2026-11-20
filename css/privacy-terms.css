@@ -513,26 +513,25 @@ textarea:focus-visible {
         font-size: 25px;
         cursor: pointer;
     }
-
-    .site-header nav {
-        grid-area: nav;
-        display: block;
-        width: 100%;
-    }
    
-   .site-header nav.active {
-        display: block;
-    }
-   
-   .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 15px;
-    gap: 5px;
+   .site-header nav {
+      grid-area: nav;
+      display: none;
+      width: 100%;
    }
    
-  .nav-links.open { display: flex; }
+   .site-header nav.open {
+      display: block;
+   }
+   
+   .nav-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 15px;
+      gap: 5px;
+   }
 
     .header-icons {
         display: none;
