@@ -87,12 +87,11 @@ input, textarea, button, select {
 .site-header { 
    display: grid; 
    grid-template-columns: 1fr auto 1fr;
-   grid-template-areas "logo nav icons";
    align-items: center; 
-   width: 100%;
-   padding: 40px 65px; 
+   padding: 20px 65px; 
    background: var(--primary-dark); 
-   color: #fff; 
+   color: #fff;
+   min-height: 100px;
    box-sizing: border-box;
 }
 
@@ -134,6 +133,11 @@ input, textarea, button, select {
    text-decoration: underline; 
 }
 
+/* HAMBURGER BUTTON */
+.menu-button {
+   display: none
+}
+
 /* ========================================
    4. HEADER ICONS
    ======================================== */
@@ -147,8 +151,8 @@ input, textarea, button, select {
 
 .header-icons img {
    display: block;
-   width: 35px; 
-   height: 35px; 
+   width: 30px; 
+   height: 30px; 
    object-fit: contain; 
 }
 
@@ -464,7 +468,7 @@ textarea:focus-visible {
     .privacy-footer-main,
     .terms-footer-main {
         display: grid;
-        grid-template-columns: repeat (2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 30px
     }
 
@@ -482,35 +486,39 @@ textarea:focus-visible {
 @media (max-width: 650px) {
     .site-header {
         height: auto;
-        min-height: 64px;
-        flex-direction: column;
-        justify-content: center;
+        min-height: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         gap: 12px;
         padding: 15px var(--side-space);
     }
 
+   .logo {
+      width: 85px;
+   }
+   
+    .menu-button {
+       display: block;
+       background: none;
+       border: none;
+       color: white;
+       font-size: 25px;
+       cursor: pointer;
+   }
+
     .site-header nav {
-        order: 3;
-        width: 100%;
-    }
-
-    .nav-list {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px 12px;
-    }
-
-    .nav-list a {
-        font-size: 14px;
+        display: none;
     }
 
     .header-icons {
-        gap: 18px
+        gap: 12px
     }
 
     .header-icons img {
-        width: 36px;
-        height: 36px;
+        width: 24px;
+        height: 24px;
     }
 
     .privacy-header,
