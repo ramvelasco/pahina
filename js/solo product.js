@@ -24,7 +24,7 @@ function change(amount) {
 // connects the function to the amount buttons // 
 document.querySelectorAll(".quantity button").forEach(function (button) {
   button.addEventListener("click", function () {
-    if (button.textContent.trim() === "+") {
+    if (button.getAttribute("aria-label") === "Increase quantity") {
       change(1);
     } else {
       change(-1);
