@@ -83,3 +83,9 @@ orderButton.addEventListener("click", function () {
     window.location.href = pahinamailLink;
   }
 });
+
+// updates the year automatically
+const yearSpan = document.getElementById("year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
