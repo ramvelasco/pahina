@@ -444,6 +444,11 @@ h1, h2, h3 { /* headings use the heading font */
 }
 .home-copyright a { color: var(--cream); text-decoration: underline; }
 
+/* footer on tablet */
+@media (max-width: 1000px) {
+  .home-footer-main { padding: 30px 40px; flex-wrap: wrap; }
+}
+
 /* footer on mobile */
 @media (max-width: 800px) {
   .home-footer-main { flex-direction: column; padding: 30px 20px; }
