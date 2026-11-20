@@ -9,10 +9,24 @@
   --background: #F8F6E9;    /* light background color */
   --surface: #F8EDED;       /* light panel color */
   --border: #F5CBD6;        /* decorative borders only */
-  --field-border: #8B6F5E;  /* form field borders, about 4.6:1 on white so fields are easy to see */
+  --field-border: #8B6F5E;  /* form field borders, about 4.6:1 on white */
   --error: #B00020;         /* error text and borders, about 7:1 on white */
   --success: #1B5E20;       /* success text, about 7:1 on white */
   --radius: 0.5rem;
+
+  /* navbar colors and spacing */
+  --dark: #3b2a22;
+  --cream: #F8F6E9;
+  --pink: #ffbab3;
+  --side-space: 50px;
+}
+
+@media (max-width: 1000px) {
+  :root { --side-space: 40px; }
+}
+
+@media (max-width: 650px) {
+  :root { --side-space: 20px; }
 }
 
 
@@ -20,27 +34,26 @@
    2. RESET AND BASE
    ------------------------------------------------------------ */
 
-/* box-sizing makes width include padding and border, sizes act as expected. */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* The body sets the default font, size, color and spacing for the whole page. */
 body {
-  margin: 0;                         
+  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   font-family: "Raleway", sans-serif;
-  font-size: 1rem;                  
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--text);
   background: var(--background);
 }
 
-/* Heading and paragraph styles are limited to the main content, so the shared navbar and footer keep their own. */
+/* Heading and paragraph styles are limited to the main content,
+   so the navbar and footer keep their own. */
 main h1,
 main h2 {
   font-family: "Ibarra Real Nova", serif;
@@ -75,23 +88,150 @@ main textarea:focus-visible {
 
 /* ------------------------------------------------------------
    3. HEADER AND NAVIGATION
-   Moved to css/navbar.css so every page shares one navbar.
+   The brown button = the link marked aria-current="page".
    ------------------------------------------------------------ */
+.site-header,
+.site-header * {
+  box-sizing: border-box;
+}
+
+.site-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  height: 77px;
+  min-height: 77px;
+  max-height: 77px;
+  padding: 0 70px;
+  line-height: 1.5;
+  background-color: var(--dark);
+  color: var(--cream);
+  font-family: "Raleway", sans-serif;
+}
+
+.site-header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-logo {
+  display: block;
+  margin: -10px 0;
+}
+
+.site-logo img {
+  display: block;
+  height: 60px;
+  width: auto;
+}
+
+.site-header nav {
+  grid-area: auto;
+  justify-self: auto;
+}
+
+.nav-list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.nav-list a {
+  display: block;
+  padding: 8px 22px;
+  border-radius: 30px;
+}
+
+/* the brown button: the link for the page you are on */
+.nav-list a[aria-current="page"] {
+  background: linear-gradient(#7a6558, #5a463b);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.nav-list a:hover:not([aria-current="page"]) {
+  color: var(--pink);
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.header-icons img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* mobile menu toggle (CSS only, no JavaScript) */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-button {
+  display: none;
+  color: var(--cream);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.nav-toggle:focus-visible + .menu-button {
+  outline: 3px solid var(--pink);
+  outline-offset: 4px;
+}
+
+/* navbar on tablet */
+@media (max-width: 1000px) {
+  .site-header { padding: 0 var(--side-space); }
+  .nav-list { gap: 16px; }
+}
+
+/* navbar on mobile */
+@media (max-width: 800px) {
+  .menu-button { display: block; }
+
+  #navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 16px var(--side-space);
+    background-color: var(--dark);
+    z-index: 10;
+  }
+
+  .nav-toggle:checked ~ #navLinks { display: block; }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
 
 
 /* ------------------------------------------------------------
    4. MAIN CONTENT
    ------------------------------------------------------------ */
 main {
-  flex: 1;                           /* takes the free space so the footer sits at the bottom */
+  flex: 1;
   width: 100%;
-  max-width: 64rem;                  /* keeps lines from getting too wide */
-  margin: 0 auto;                    /* auto left and right centers the block */
+  max-width: 64rem;
+  margin: 0 auto;
   padding: 1.5rem 1rem;
 }
 
 .contact-intro {
-  max-width: 48rem;                  /* a comfortable reading width for the intro */
+  max-width: 48rem;
   margin-bottom: 2rem;
 }
 
@@ -115,12 +255,11 @@ main {
 }
 
 .contact-form label {
-  display: block;                    /* puts the label on its own line above the field */
+  display: block;
   margin-bottom: 0.25rem;
   font-weight: bold;
 }
 
-/* The "(required)" word is smaller and not bold. */
 .required {
   font-weight: normal;
   color: var(--muted);
@@ -132,16 +271,15 @@ main {
   color: var(--muted);
 }
 
-/* Style all fields together by listing selectors with commas. */
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
   display: block;
-  width: 100%;                       /* fills the form width */
-  min-height: 3rem;                  /* tall fields are easier to tap */
+  width: 100%;
+  min-height: 3rem;
   padding: 0.75rem;
-  font: inherit;                     /* uses the same font as the page */
-  font-size: 1rem;                   /* 16px stops phones from zooming in when a field is tapped */
+  font: inherit;
+  font-size: 1rem;
   color: var(--text);
   background: #FFFFFF;
   border: 2px solid var(--field-border);
@@ -153,27 +291,23 @@ main {
   resize: vertical;
 }
 
-/* Placeholder text needs enough contrast too. */
 .contact-form ::placeholder {
   color: #6B6B6B;
   opacity: 1;
 }
 
-/* The field you are typing in gets a darker border. */
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
   border-color: var(--primary);
 }
 
-/* Show a red border only after the visitor has typed something wrong. */
 .contact-form input:user-invalid,
 .contact-form select:user-invalid,
 .contact-form textarea:user-invalid {
   border-color: var(--error);
 }
 
-/* Messages from the form script (success or a problem) go here. */
 #form-status {
   min-height: 1.6em;
   margin: 1rem 0 0;
@@ -190,8 +324,8 @@ main {
    ------------------------------------------------------------ */
 .button {
   display: inline-block;
-  width: 100%;                       /* full width on phones, see the larger screens section */
-  min-height: 2.75rem;               /* 44px tap target */
+  width: 100%;
+  min-height: 2.75rem;
   padding: 0.75rem 1.5rem;
   font: inherit;
   font-weight: bold;
@@ -199,11 +333,10 @@ main {
   background: var(--primary);
   border: 2px solid var(--primary);
   border-radius: var(--radius);
-  cursor: pointer;                   /* shows the hand pointer */
+  cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
 }
 
-/* Hover gives feedback when the mouse is over the button. */
 .button:hover {
   background: var(--primary-dark);
   border-color: var(--primary-dark);
@@ -225,7 +358,7 @@ main {
 .spaced { margin-top: 1rem; }
 
 address {
-  font-style: normal;                /* the browser makes address italic by default */
+  font-style: normal;
 }
 
 
@@ -237,9 +370,6 @@ address {
 
 /* ------------------------------------------------------------
    9. LARGER SCREENS
-   A media query applies its rules only when the condition is true.
-   Here: when the screen is at least 48em wide (about 768px, a tablet).
-   em is used so it also works when visitors enlarge their text.
    ------------------------------------------------------------ */
 @media (min-width: 48em) {
 
@@ -247,21 +377,19 @@ address {
     padding: 2rem;
   }
 
-  /* Form on the left, contact details on the right. */
   .page-layout {
     flex-direction: row;
     align-items: flex-start;
   }
 
   .contact-form {
-    flex: 2;                         /* takes two parts of the space */
+    flex: 2;
   }
 
   .contact-info {
-    flex: 1;                         /* takes one part */
+    flex: 1;
   }
 
-  /* The button only needs to be as wide as its text. */
   .button {
     width: auto;
   }
@@ -270,7 +398,6 @@ address {
 
 /* ------------------------------------------------------------
    10. REDUCED MOTION
-   Respects visitors who ask their device to limit animation.
    ------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   * {
