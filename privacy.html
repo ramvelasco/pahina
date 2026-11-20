@@ -10,34 +10,6 @@
     <link rel="stylesheet" href="css/privacy.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
-
-    <!-- NAVBAR HEIGHT FIX (loads last so it wins) -->
-    <style>
-        .site-header {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 77px !important;
-            padding: 0 70px !important;
-            line-height: 1.5;
-            background-color: var(--dark, #3b2a22);
-            color: var(--cream, #f8f6e9);
-        }
-
-        .site-header nav,
-        .site-header ul {
-            margin: 0;
-        }
-
-        @media (max-width: 1000px) {
-            .site-header { padding: 0 40px !important; }
-        }
-
-        @media (max-width: 650px) {
-            .site-header { padding: 0 20px !important; }
-        }
-    </style>
 </head>
 
 <body>
@@ -59,8 +31,7 @@
 
     <nav aria-label="Main" id="navLinks">
         <ul class="nav-list">
-            <!-- add class="active" to a link to give it the brown button -->
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="index.html#shop">Shop</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="contact.html">Contact</a></li>
