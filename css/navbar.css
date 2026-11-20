@@ -1,5 +1,5 @@
 /* ========================================
-   PAH/NA - NAVBAR (matches homepage)
+   PAH/NA - NAVBAR
    ======================================== */
 
 .site-header {
@@ -8,10 +8,17 @@
   align-items: center;
   justify-content: space-between;
   height: 77px;
+  min-height: 77px;
+  max-height: 77px;
   padding: 0 70px;
   line-height: 1.5;
-  background-color: var(--dark);
-  color: var(--cream);
+  background-color: var(--dark, #3b2a22);
+  color: var(--cream, #f8f6e9);
+}
+
+.site-header nav {
+  grid-area: auto;
+  justify-self: auto;
 }
 
 .site-logo {
@@ -40,16 +47,8 @@
   border-radius: 30px;
 }
 
-/* the brown button */
-.nav-list a.active,
-.nav-list a[aria-current="page"] {
-  background: linear-gradient(#7a6558, #5a463b);
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.nav-list a:hover:not(.active):not([aria-current="page"]) {
-  color: var(--pink);
+.nav-list a:hover {
+  color: var(--pink, #ffbab3);
 }
 
 .header-icons {
@@ -68,14 +67,14 @@
   display: none;
   background: none;
   border: none;
-  color: var(--cream);
+  color: var(--cream, #f8f6e9);
   font-size: 1.8rem;
   cursor: pointer;
 }
 
 /* tablet */
 @media (max-width: 1000px) {
-  .site-header { padding: 0 var(--side-space); }
+  .site-header { padding: 0 var(--side-space, 40px); }
   .nav-list { gap: 16px; }
 }
 
@@ -89,8 +88,8 @@
     top: 100%;
     left: 0;
     right: 0;
-    padding: 16px var(--side-space);
-    background-color: var(--dark);
+    padding: 16px var(--side-space, 20px);
+    background-color: var(--dark, #3b2a22);
     z-index: 10;
   }
 
