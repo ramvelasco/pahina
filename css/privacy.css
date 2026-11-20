@@ -365,8 +365,3 @@ textarea:focus-visible {
         animation: none !important;
     }
 }
-.site-header {
-  height: 77px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
