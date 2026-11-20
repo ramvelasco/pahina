@@ -15,6 +15,37 @@
 
   <!-- custom css -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- footer + header icon styles (built in so they always apply) -->
+  <style>
+    .header-icons { display: flex; align-items: center; gap: 13px; }
+    .header-icons img { width: 32px; height: 32px; object-fit: contain; }
+
+    .home-footer { background: #f5cbd6; }
+    .home-footer-main { display: flex; justify-content: space-between; gap: 40px; padding: 30px 90px; }
+    .home-footer-brand { max-width: 460px; }
+    .home-footer-logo { font-family: "Ibarra Real Nova", serif; font-size: 5.5rem; line-height: 1.1; color: #5f4434; }
+    .home-footer-text { font-size: 0.85rem; margin-top: 25px; }
+    .home-footer-column { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
+    .home-footer-column h2 { font-family: "Ibarra Real Nova", serif; font-size: 0.8rem; margin-bottom: 6px; }
+    .home-footer-column a { font-size: 0.8rem; }
+    .home-footer-column a:hover { color: #5f4434; text-decoration: underline; }
+    .home-socials { display: grid; grid-template-columns: repeat(3, 44px); gap: 16px 24px; }
+    .home-socials img { width: 44px; height: 44px; object-fit: contain; }
+    .home-copyright { background: #3b2a22; color: #f8f6e9; text-align: center; padding: 35px 20px; font-size: 0.9rem; }
+    .home-copyright a { color: #f8f6e9; text-decoration: underline; }
+
+    @media (max-width: 1000px) {
+      .home-footer-main { padding: 30px 40px; flex-wrap: wrap; }
+    }
+    @media (max-width: 800px) {
+      .home-footer-main { flex-direction: column; padding: 30px 20px; }
+      .home-footer-logo { font-size: 3.5rem; }
+    }
+    @media (max-width: 650px) {
+      .header-icons { display: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -32,7 +63,6 @@
       <a href="index.html#about">About</a>
       <a href="contact.html">Contact</a>
     </nav>
-
 
     <div class="header-icons">
       <img src="images/search.png" alt="Search" width="32" height="32">
