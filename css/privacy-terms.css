@@ -467,7 +467,7 @@ textarea:focus-visible {
 /* ========================================
     13. MOBILE RESPONSIVENESS
    ======================================== */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .site-header {
         height: auto;
         min-height: 64px;
@@ -477,14 +477,15 @@ textarea:focus-visible {
         padding: 15px var(--side-space);
     }
 
-    .site-name {
-        font-size: 16px;
+    .site-header nav {
+        order: 3;
+        width: 100%;
     }
 
     .nav-list {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 8px 12px;
     }
 
     .nav-list a {
@@ -492,18 +493,19 @@ textarea:focus-visible {
     }
 
     .header-icons {
-        gap: 20px
+        gap: 18px
     }
 
-    .header-icons a {
-        font-size: 19px;
+    .header-icons img {
+        width: 36px;
+        height: 36px;
     }
 
     .privacy-header,
     .terms-header,
     .privacy-content,
     .terms-content {
-        width:88%
+        width: 88%;
     }
 
     .privacy-header,
@@ -554,9 +556,8 @@ textarea:focus-visible {
 
     .privacy-footer-main,
     .terms-footer-main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px 20px;
+       padding: 25px 20px; 
+       flex-direction: column;
     }
 
     .privacy-footer-brand,
@@ -566,7 +567,7 @@ textarea:focus-visible {
 
     .privacy-footer-logo,
     .terms-footer-logo {
-        font-size: 2.7rem;
+        font-size: 3.5rem;
     }
 
     .privacy-footer-text,
