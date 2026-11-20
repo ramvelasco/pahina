@@ -87,6 +87,12 @@ h1, h2, h3 { /* headings use the heading font */
   letter-spacing: 1px;
 }
 
+.home-logo img { /* the picture logo */
+  display: block;
+  height: 40px;   /* change this number to make the logo bigger or smaller */
+  width: auto;    /* keeps the logo's proportions */
+}
+
 .home-nav-links {
   display: flex;
   gap: 40px;
