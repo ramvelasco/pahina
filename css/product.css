@@ -127,8 +127,6 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
 .buttons svg { width: 1.1em; height: 1.1em; }
 .order { background: transparent; color: var(--accent); }
 .order:hover { background: rgba(59, 42, 34, 0.08); }
-.cart { background: var(--accent); color: #fff; }
-.cart:hover { background: var(--accent-dark); }
 
 /* ===== CONTACT PAGE ===== */
 .contact-page { background: var(--cream); color: var(--brown); line-height: 1.6; }
