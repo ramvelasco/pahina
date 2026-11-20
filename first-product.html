@@ -2,248 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Don't Be Late Tee | PAH/NA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | PAH/NA</title>
 
   <!-- Google Fonts: Ibarra Real Nova (headings) and Raleway (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- your product page styles (keep your original pahina.css) -->
-  <link rel="stylesheet" href="css/pahina.css">
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- header + footer styles (inside the page so they always load) -->
-  <style>
-    /* colors and fonts */
-    header.home-navbar,
-    footer.home-footer {
-      --brown: #5f4434;
-      --dark: #3b2a22;
-      --pink: #ffbab3;
-      --light-pink: #f5cbd6;
-      --cream: #f8f6e9;
-      --heading-font: "Ibarra Real Nova", serif;
-      --body-font: "Raleway", sans-serif;
-      font-family: "Raleway", sans-serif;
-      line-height: 1.5;
-    }
-
-    /* reset, only inside the header and footer */
-    header.home-navbar *,
-    footer.home-footer * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    header.home-navbar a,
-    footer.home-footer a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* === Nav === */
-    header.home-navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 70px;
-      background-color: #3b2a22;   /* dark brown bar */
-      color: #f8f6e9;              /* cream text */
-    }
-
-    header.home-navbar .home-logo {
-      font-family: "Ibarra Real Nova", serif;
-      font-size: 1.6rem;
-      letter-spacing: 1px;
-      margin: -10px 0;
-    }
-
-    header.home-navbar .home-logo img {
-      display: block;
-      height: 60px;
-      width: auto;
-    }
-
-    header.home-navbar nav.home-nav-links {
-      display: flex;
-      gap: 40px;
-      font-size: 1rem;
-    }
-
-    header.home-navbar nav.home-nav-links a {
-      color: #f8f6e9;              /* cream links */
-      background: none;
-      font-weight: 400;
-      text-decoration: none;
-      padding: 8px 22px;
-      border-radius: 30px;
-    }
-
-    /* the active page (Shop): brown pill, bold, underlined */
-    header.home-navbar nav.home-nav-links a.active {
-      background: linear-gradient(#7a6558, #5a463b);
-      color: #f8f6e9;
-      font-weight: 700;
-      text-decoration: underline;
-    }
-
-    /* hover color on the other links */
-    header.home-navbar nav.home-nav-links a:hover:not(.active) {
-      color: #ffbab3;              /* pink */
-    }
-
-    header.home-navbar .header-icons {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    header.home-navbar .header-icons img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-    }
-
-    header.home-navbar button.home-menu-button {
-      display: none;               /* hidden on desktop */
-      background: none;
-      border: none;
-      color: #f8f6e9;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    /* === Footer === */
-    footer.home-footer {
-      background: #f5cbd6;
-      color: #3b2a22;
-    }
-
-    footer.home-footer .home-footer-main {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      padding: 30px 90px;
-    }
-
-    footer.home-footer .home-footer-brand { max-width: 460px; }
-
-    footer.home-footer .home-footer-logo {
-      font-family: "Ibarra Real Nova", serif;
-      font-size: 5.5rem;
-      line-height: 1.1;
-      color: #5f4434;
-    }
-
-    footer.home-footer .home-footer-text {
-      font-size: 0.85rem;
-      margin-top: 25px;
-    }
-
-    footer.home-footer .home-footer-column {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding-top: 10px;
-    }
-
-    footer.home-footer .home-footer-column h2 {
-      font-family: "Ibarra Real Nova", serif;
-      font-size: 0.8rem;
-      margin-bottom: 6px;
-    }
-
-    footer.home-footer .home-footer-column a { font-size: 0.8rem; }
-
-    footer.home-footer .home-footer-column a:hover {
-      color: #5f4434;
-      text-decoration: underline;
-    }
-
-    footer.home-footer .home-socials {
-      display: grid;
-      grid-template-columns: repeat(3, 44px);
-      gap: 16px 24px;
-    }
-
-    footer.home-footer .home-socials img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-    }
-
-    footer.home-footer .home-copyright {
-      background: #3b2a22;
-      color: #f8f6e9;
-      text-align: center;
-      padding: 35px 20px;
-      font-size: 0.9rem;
-    }
-
-    footer.home-footer .home-copyright a {
-      color: #f8f6e9;
-      text-decoration: underline;
-    }
-
-    /* visible focus outline for keyboard users */
-    header.home-navbar :focus-visible { outline: 3px solid #f8f6e9; outline-offset: 2px; }
-    footer.home-footer :focus-visible { outline: 3px solid #3b2a22; outline-offset: 2px; }
-    footer.home-footer .home-copyright :focus-visible { outline-color: #f8f6e9; }
-
-    /* === Tablet === */
-    @media (max-width: 1000px) {
-      header.home-navbar { padding: 20px 30px; }
-      header.home-navbar nav.home-nav-links { gap: 10px; }
-      footer.home-footer .home-footer-main { padding: 30px 40px; flex-wrap: wrap; }
-    }
-
-    /* === Mobile footer === */
-    @media (max-width: 800px) {
-      footer.home-footer .home-footer-main { flex-direction: column; padding: 30px 20px; }
-      footer.home-footer .home-footer-logo { font-size: 3.5rem; }
-    }
-
-    /* === Mobile nav === */
-    @media (max-width: 650px) {
-      header.home-navbar {
-        flex-wrap: wrap;
-        padding: 16px 20px;
-      }
-
-      header.home-navbar button.home-menu-button { display: block; }
-      header.home-navbar .header-icons { display: none; }
-
-      header.home-navbar nav.home-nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 15px;
-        gap: 5px;
-      }
-
-      header.home-navbar nav.home-nav-links.open { display: flex; }
-    }
-  </style>
+  <!-- custom css -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- === NAVBAR === -->
   <header class="home-navbar">
     <a href="index.html" class="home-logo" aria-label="PAH/NA home">
-      <img src="images/logo.png" alt="PAH/NA" width="105" height="40">
-    </a>
+  <img src="images/logo.png" alt="PAH/NA" width="105" height="40">
+</a>
 
     <!-- the hamburger button only shows on mobile -->
     <button class="home-menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
 
     <nav class="home-nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="index.html#home">Home</a>
-      <a href="index.shop.html" class="active" aria-current="page">Shop</a>
-      <a href="index.html#about">About</a>
+      <a href="index.html" class="active" aria-current="page">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
       <a href="contact.html">Contact</a>
     </nav>
+
 
     <div class="header-icons">
       <img src="images/search.png" alt="Search" width="32" height="32">
@@ -251,131 +41,165 @@
       <img src="images/basket.png" alt="Cart" width="32" height="32">
       <img src="images/profile.png" alt="Profile" width="32" height="32">
     </div>
+
   </header>
 
-  <main class="content">
-    <div class="product">
-
-      <p class="path"><a href="index.html">Home</a>/<a href="index.shop.html">Shop</a>/Don't Be Late Tee</p>
-
-      <img class="main-pic" src="images/dblw.png" alt="White tee, front and back view" width="900">
-
-      <div class="other-colors">
-        <img src="images/dblbr.png" alt="Brown tee, front and back view" width="440">
-        <img src="images/dblbl.png" alt="Black tee, front and back view" width="440">
+  <main>
+    <!-- === HERO === -->
+    <section class="home-hero">
+      <h1>Keep <span class="pink-text">Your Story</span> Going</h1>
+      <div class="home-hero-bottom">
+        <p class="home-tagline">Empowering Women through Everyday Wear</p>
+        <a href="#shop" class="home-shop-button">Shop Now!</a>
       </div>
+    </section>
 
-      <div class="right">
-        <h1 id="product-name">Don't Be Late Tee</h1>
-        <p class="price">₱499</p>
-        <p class="desc">A casual tee for making room for new beginnings.<br>Lightweight and easy to style.</p>
-        <p class="fabric"><b>Fabric:</b> 100% Cotton</p>
+    <!-- repeating brand name strip -->
+    <div class="home-brand-strip" aria-hidden="true">
+      <div class="home-brand-track">
 
-        <fieldset class="option">
-          <legend>Color</legend>
-          <div class="colors">
-            <label><input type="radio" name="color" value="White" checked><span class="dot white"></span><span class="sr-only">White</span></label>
-            <label><input type="radio" name="color" value="Brown"><span class="dot brown"></span><span class="sr-only">Brown</span></label>
-            <label><input type="radio" name="color" value="Black"><span class="dot black"></span><span class="sr-only">Black</span></label>
+        <!-- first copy -->
+        <div class="home-brand-group">
+          <span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span>
+          <span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span>
+        </div>
+
+        <!-- second copy -->
+        <div class="home-brand-group">
+          <span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span>
+          <span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span><span>PAH/NA</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- the collection and about sections share one background gradient -->
+    <div class="home-gradient-area">
+
+      <!-- === DEBUT COLLECTION === -->
+      <section class="home-collection" id="shop">
+        <h2>Our Debut Collection</h2>
+
+        <div class="home-product-list">
+
+          <!-- Product 1 -->
+          <article class="home-product-card">
+            <div class="home-product-image">
+              <img src="images/dont-be-late-black.png" alt="Don't Be Late tee, front view" class="img-fluid">
+              <div class="home-swatches">
+                <button type="button" class="swatch swatch-cream" aria-label="Cream"></button>
+                <button type="button" class="swatch swatch-brown" aria-label="Brown"></button>
+                <button type="button" class="swatch swatch-black" aria-label="Black"></button>
+              </div>
+            </div>
+            <div class="home-product-info">
+              <h3>Don't Be Late</h3>
+              <span class="home-price">&#8369;499</span>
+            </div>
+            <a href="first-product.html" class="home-order-button" aria-label="Order Now: Don't Be Late Tee">Order Now <span class="arrow-circle" aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="home-product-card">
+            <div class="home-product-image">
+              <img src="images/everyday-comfort-white.png" alt="Everyday Comfort Tee, front view" class="img-fluid">
+              <div class="home-swatches">
+                <button type="button" class="swatch swatch-cream" aria-label="Cream"></button>
+                <button type="button" class="swatch swatch-brown" aria-label="Brown"></button>
+                <button type="button" class="swatch swatch-black" aria-label="Black"></button>
+              </div>
+            </div>
+            <div class="home-product-info">
+              <h3>Everyday Comfort Tee</h3>
+              <span class="home-price">&#8369;499</span>
+            </div>
+            <a href="second-product.html" class="home-order-button" aria-label="Order Now: Everyday Comfort Tee">Order Now <span class="arrow-circle" aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="home-product-card">
+            <div class="home-product-image">
+              <img src="images/do-good-work-brown.png" alt="Do Good Work tee, front view" class="img-fluid">
+              <div class="home-swatches">
+                <button type="button" class="swatch swatch-cream" aria-label="Cream"></button>
+                <button type="button" class="swatch swatch-brown" aria-label="Brown"></button>
+                <button type="button" class="swatch swatch-black" aria-label="Black"></button>
+              </div>
+            </div>
+            <div class="home-product-info">
+              <h3>Do Good Work</h3>
+              <span class="home-price">&#8369;499</span>
+            </div>
+            <a href="third-product.html" class="home-order-button" aria-label="Order Now: Do Good Work Tee">Order Now <span class="arrow-circle" aria-hidden="true">&rarr;</span></a>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- === ABOUT US === -->
+      <section class="home-about" id="about">
+        <h2>About Us</h2>
+
+        <div class="home-about-content">
+          <div class="home-about-image">
+            <div class="image-placeholder">About Us photo</div>
+            <!-- <img src="images/about-us.jpg" alt="Diverse women" class="img-fluid"> -->
           </div>
-        </fieldset>
 
-        <fieldset class="option">
-          <legend>Size</legend>
-          <div class="sizes">
-            <label><input type="radio" name="size" value="XXS"><span>XXS</span></label>
-            <label><input type="radio" name="size" value="XS"><span>XS</span></label>
-            <label><input type="radio" name="size" value="S"><span>S</span></label>
-            <label><input type="radio" name="size" value="M"><span>M</span></label>
-            <label><input type="radio" name="size" value="L"><span>L</span></label>
-            <label><input type="radio" name="size" value="XL"><span>XL</span></label>
-            <label><input type="radio" name="size" value="XXL"><span>XXL</span></label>
-          </div>
-        </fieldset>
-
-        <div class="option">
-          <h3 id="qty-label">Quantity</h3>
-          <div class="quantity" role="group" aria-labelledby="qty-label">
-            <button type="button" aria-label="Decrease quantity">&minus;</button>
-            <span id="count" aria-live="polite">0</span>
-            <button type="button" aria-label="Increase quantity">+</button>
+          <div class="home-about-text">
+            <h3>PAH/NA</h3>
+            <p>PAH/NA is a rebrand of a small startup business based in the Philippines. It is inspired by the <strong>Tagalog word &ldquo;Pahina,&rdquo;</strong> which means a single leaf of a book.</p>
+            <p>The slash symbolizes how each page of a book is a different experience, representing our collective experiences and stories we want to share. Our business aims to bring comfort and freedom of expression to our customers through our shirts and other products.</p>
           </div>
         </div>
 
-        <p id="status" role="status"></p>
-
-        <div class="buttons wide">
-          <button type="button" class="order">Order Now
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12h8M12.5 8.5 16 12l-3.5 3.5"/></svg>
-          </button>
-          <button type="button" class="cart">Add to Cart
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1 13H6L5 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
-          </button>
-        </div>
-      </div>
-
+        <p class="home-about-quote">We aim to give Filipinas<br><strong>a way to express themselves</strong> by making everyday<br>clothing feel a lot more personal.</p>
+      </section>
     </div>
   </main>
 
   <!-- === FOOTER === -->
   <footer class="home-footer">
-    <div class="home-footer-main">
-      <div class="home-footer-brand">
-        <p class="home-footer-logo">PAH/NA</p>
-        <p class="home-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
-      </div>
-
-      <nav class="home-footer-column" aria-label="Explore">
-        <h2>EXPLORE</h2>
-        <a href="index.html">Home</a>
-        <a href="index.html#shop">Shop</a>
-        <a href="index.html#about">About Us</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-
-      <nav class="home-footer-column" aria-label="Information">
-        <h2>INFORMATION</h2>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-      </nav>
-
-      <div class="home-footer-column">
-        <h2>FOLLOW PAH/NA</h2>
-        <div class="home-socials">
-          <img src="images/fb.png" alt="Facebook" width="32" height="32">
-          <img src="images/ig.png" alt="Instagram" width="32" height="32">
-          <img src="images/messenger.png" alt="Messenger" width="32" height="32">
-          <img src="images/threads.png" alt="Threads" width="32" height="32">
-          <img src="images/x.png" alt="X" width="32" height="32">
-          <img src="images/tiktok.png" alt="TikTok" width="32" height="32">
-        </div>
-      </div>
+  <div class="home-footer-main">
+    <div class="home-footer-brand">
+      <p class="home-footer-logo">PAH/NA</p>
+      <p class="home-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
     </div>
 
-    <div class="home-copyright">
-      <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
+    <nav class="home-footer-column" aria-label="Explore">
+      <h2>EXPLORE</h2>
+      <a href="index.html">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <nav class="home-footer-column" aria-label="Information">
+      <h2>INFORMATION</h2>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+
+    <div class="home-footer-column">
+      <h2>FOLLOW PAH/NA</h2>
+      <div class="home-socials">
+        <img src="images/fb.png" alt="Facebook" width="32" height="32">
+        <img src="images/ig.png" alt="Instagram" width="32" height="32">
+        <img src="images/messenger.png" alt="Messenger" width="32" height="32">
+        <img src="images/threads.png" alt="Threads" width="32" height="32">
+        <img src="images/x.png" alt="X" width="32" height="32">
+        <img src="images/tiktok.png" alt="TikTok" width="32" height="32">
+      </div>
     </div>
-  </footer>
+  </div>
 
-  <!-- mobile menu button + footer year -->
-  <script>
-    var menuButton = document.getElementById("menuButton");
-    var navLinks = document.getElementById("navLinks");
+  <div class="home-copyright">
+    <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
+  </div>
+</footer>
 
-    if (menuButton && navLinks) {
-      menuButton.addEventListener("click", function () {
-        var isOpen = navLinks.classList.toggle("open");
-        menuButton.setAttribute("aria-expanded", isOpen);
-      });
-    }
-
-    var yearSpan = document.getElementById("year");
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  </script>
-
-  <script src="js/solo product.js"></script>
-
+  <!-- Bootstrap JS (CDN)-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
