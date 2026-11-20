@@ -1,26 +1,3 @@
-/* ========================================
-   MOBILE HAMBURGER MENU
-======================================== */
-
-const menuButton = document.getElementById("menuButton");
-const navLinks = document.getElementById("navLinks");
-
-if (menuButton && navLinks) {
-  // when the button is clicked, show or hide the menu
-  menuButton.addEventListener("click", function () {
-    navLinks.classList.toggle("open");
-
-    // tell screen readers if the menu is open or closed
-    const isOpen = navLinks.classList.contains("open");
-    menuButton.setAttribute("aria-expanded", isOpen);
-    menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-  });
-}
-
-        menuButton.innerHTML = isOpen ? "&times;" : "&#9776;";
-    });
-}
-
 
 /* ========================================
    PAH/NA - WEBSITE JAVASCRIPT
@@ -85,5 +62,28 @@ if (termsAgree && termsDisagree && termsAgreement) {
 
         termsMessage.textContent = "You have not acknowledged our Terms of Use.";
         termsAgreement.style.display = "none";
+    });
+}
+
+/* ========================================
+   MOBILE HAMBURGER MENU
+======================================== */
+
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
+
+if (menuButton && navLinks) {
+  // when the button is clicked, show or hide the menu
+  menuButton.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+
+    // tell screen readers if the menu is open or closed
+    const isOpen = navLinks.classList.contains("open");
+    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  });
+}
+
+        menuButton.innerHTML = isOpen ? "&times;" : "&#9776;";
     });
 }
