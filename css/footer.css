@@ -1,0 +1,102 @@
+/* === SHARED FOOTER === */
+.product-footer,
+.product-footer * { box-sizing: border-box; }
+
+.product-footer {
+  background: #f5cbd6;
+  color: #3b2a22;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.product-footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 40px 90px;
+}
+
+.product-footer-brand { max-width: 460px; }
+
+.product-footer-logo {
+  font-family: "Ibarra Real Nova", serif;
+  font-size: 5.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #5f4434;
+  margin: 0;
+}
+
+.product-footer-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 20px 0 0;
+  color: #3b2a22;
+}
+
+.product-footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 10px;
+}
+
+.product-footer-column h2 {
+  font-family: "Ibarra Real Nova", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  margin: 0 0 8px;
+  color: #5f4434;
+}
+
+.product-footer-column a {
+  display: inline-block;
+  padding: 6px 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #3b2a22;
+  text-decoration: none;
+}
+.product-footer-column a:hover { color: #5f4434; text-decoration: underline; }
+
+.product-socials { display: grid; grid-template-columns: repeat(3, 44px); gap: 16px 24px; }
+.product-socials img { display: block; width: 44px; height: 44px; max-width: none; object-fit: contain; }
+
+.product-copyright {
+  background: #3b2a22;
+  color: #f8f6e9;
+  text-align: center;
+  padding: 28px 20px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.product-copyright p { margin: 0; font-size: 1rem; }
+.product-copyright a { color: #f8f6e9; font-weight: 400; text-decoration: underline; }
+.product-copyright a:hover { color: #f5cbd6; }
+
+/* visible keyboard focus: dark outline on the pink footer, cream outline on the dark copyright bar */
+.product-footer a:focus-visible { outline: 3px solid #3b2a22; outline-offset: 2px; box-shadow: none; }
+.product-copyright a:focus-visible { outline: 3px solid #f8f6e9; outline-offset: 2px; box-shadow: none; }
+
+/* footer on tablet */
+@media (max-width: 1000px) {
+  .product-footer-main { padding: 36px 40px; flex-wrap: wrap; }
+  .product-footer-brand { flex-basis: 100%; max-width: none; }
+}
+
+/* footer on mobile */
+@media (max-width: 800px) {
+  .product-footer-main { flex-direction: column; gap: 24px; padding: 30px 20px; }
+  .product-footer-logo { font-size: 3.5rem; }
+  .product-socials { grid-template-columns: repeat(auto-fit, 44px); gap: 12px; }
+}
