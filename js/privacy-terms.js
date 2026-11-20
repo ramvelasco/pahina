@@ -64,3 +64,28 @@ if (termsAgree && termsDisagree && termsAgreement) {
         termsAgreement.style.display = "none";
     });
 }
+
+
+/* ========================================
+   MOBILE HAMBURGER MENU
+======================================== */
+
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
+
+if (menuButton && navLinks) {
+
+    menuButton.addEventListener("click", function () {
+
+        const isOpen = navLinks.classList.toggle("active");
+
+        menuButton.setAttribute("aria-expanded", isOpen);
+
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close menu" : "Open menu"
+        );
+
+        menuButton.innerHTML = isOpen ? "&times;" : "&#9776;";
+    });
+}
