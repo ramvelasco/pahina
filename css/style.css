@@ -85,18 +85,19 @@ h1, h2, h3 { /* headings use the heading font */
   font-family: var(--heading-font);
   font-size: 1.6rem;
   letter-spacing: 1px;
+  margin: -10px 0; /* logo is 60px tall but only takes up 40px of header height (60 - 10 - 10) */
 }
 
 .home-logo img { /* the picture logo */
   display: block;
-  height: 40px;   /* change this number to make the logo bigger or smaller */
+  height: 60px;   /* change this number to make the logo bigger or smaller */
   width: auto;    /* keeps the logo's proportions */
 }
 
 .logo-placeholder { /* empty box where the logo will go */
   display: block;
-  width: 105px;
-  height: 40px;
+  width: 158px;
+  height: 60px;
   border: 1.5px dashed var(--cream);
   border-radius: 6px;
 }
