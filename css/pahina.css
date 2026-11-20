@@ -2,7 +2,6 @@
   --brown: #5f4434;
   --dark: #3b2a22;
   --light-pink: #f5cbd6;
-  --pink: #f5cbd6;
   --cream: #f8f6e9;
   --heading-font: "Ibarra Real Nova", serif;
   --header: #3b2a22;
@@ -22,7 +21,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body { background: var(--page); color: var(--dark); font-family: "Raleway", sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+body { background: var(--page); color: var(--dark); font-family: "Raleway", sans-serif; line-height: normal; min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1; width: 100%; }
 a { color: var(--dark); text-decoration: none; }
 img { max-width: 100%; height: auto; }
@@ -32,41 +31,9 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
 
 :focus-visible { outline: 3px solid var(--dark); outline-offset: 2px; }
 
-/* ===== HEADER / NAV ===== */
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px var(--inset);
-  background-color: var(--dark);
-  color: var(--cream);
-}
-.site-header a { color: var(--cream); }
-.site-header :focus-visible { outline-color: var(--cream); }
-
-.logo { display: block; height: 60px; width: auto; margin: -10px 0; }
-
-.nav-list {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-  font-size: 1rem;
-}
-.nav-list a {
-  display: inline-block;
-  padding: 8px 22px;
-  border-radius: 30px;
-  font-weight: 400;
-}
-.nav-list a[aria-current="page"] {
-  background: linear-gradient(#7a6558, #5a463b);
-  font-weight: 700;
-  text-decoration: underline;
-}
-.nav-list a:hover:not([aria-current="page"]) { color: var(--pink); }
-
-.header-icons { display: flex; align-items: center; gap: 13px; }
-.header-icons img { width: 32px; height: 32px; object-fit: contain; }
+/* keep the product page header at its original height (delete these two lines to match the home page's 88px) */
+.home-navbar { min-height: 108px; }
+@media (max-width: 800px) { .home-navbar { min-height: 0; } }
 
 /* ===== PRODUCT PAGE ===== */
 .content { padding: 24px var(--inset) 60px; }
@@ -168,15 +135,8 @@ address { font-style: normal; }
 @media (max-width: 800px) {
   :root { --inset: 20px; }
 
-  .site-header { flex-wrap: wrap; gap: 12px; padding: 20px var(--inset); }
-  .site-header nav { order: 3; width: 100%; }
-  .nav-list { justify-content: center; flex-wrap: wrap; gap: 8px 12px; }
-
   /* everything stacks in one column on phones */
   .product { grid-template-columns: 1fr; grid-template-areas: "path" "pic" "more" "info"; }
   .right { gap: 0.9em; font-size: clamp(16px, 4.2vw, 22px); }
-  .product-footer-main { flex-direction: column; }
   .content { padding-bottom: 50px; }
-  .product-footer { padding: 30px 20px; }
-  .product-footer-logo { font-size: 3.5rem; }
 }
