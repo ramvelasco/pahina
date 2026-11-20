@@ -93,6 +93,14 @@ h1, h2, h3 { /* headings use the heading font */
   width: auto;    /* keeps the logo's proportions */
 }
 
+.logo-placeholder { /* empty box where the logo will go */
+  display: block;
+  width: 105px;
+  height: 40px;
+  border: 1.5px dashed var(--cream);
+  border-radius: 6px;
+}
+
 .home-nav-links {
   display: flex;
   gap: 40px;
