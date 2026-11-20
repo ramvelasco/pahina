@@ -4,12 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Don't Be Late Tee | PAH/NA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts: Ibarra Real Nova (headings) and Raleway (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- homepage css FIRST (this gives the header and footer their look) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- product page css SECOND -->
   <link rel="stylesheet" href="css/pahina.css">
 </head>
 <body>
 
-  <!-- === HEADER (same look as the homepage) === -->
+  <!-- === NAVBAR (same as homepage) === -->
   <header class="home-navbar">
     <a href="index.html" class="home-logo" aria-label="PAH/NA home">
       <img src="images/logo.png" alt="PAH/NA" width="105" height="40">
@@ -97,7 +105,7 @@
     </div>
   </main>
 
-  <!-- === FOOTER (copied from the homepage) === -->
+  <!-- === FOOTER (same as homepage) === -->
   <footer class="home-footer">
     <div class="home-footer-main">
       <div class="home-footer-brand">
@@ -136,6 +144,24 @@
       <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
     </div>
   </footer>
+
+  <!-- mobile menu button + footer year (so you don't need the homepage script.js here) -->
+  <script>
+    var menuButton = document.getElementById("menuButton");
+    var navLinks = document.getElementById("navLinks");
+
+    if (menuButton && navLinks) {
+      menuButton.addEventListener("click", function () {
+        var isOpen = navLinks.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", isOpen);
+      });
+    }
+
+    var yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
 
   <script src="solo product.js"></script>
 
