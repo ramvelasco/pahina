@@ -7,7 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 70px;
+  height: 77px;            /* change this number to make the bar taller or shorter */
+  padding: 0 70px;         /* no top/bottom padding, height controls it now */
+  line-height: 1.5;        /* matches the homepage */
   background-color: var(--dark);
   color: var(--cream);
 }
@@ -73,7 +75,7 @@
 
 /* tablet */
 @media (max-width: 1000px) {
-  .site-header { padding: 20px var(--side-space); }
+  .site-header { padding: 0 var(--side-space); }
   .nav-list { gap: 16px; }
 }
 
