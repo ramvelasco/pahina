@@ -7,16 +7,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 77px;            /* change this number to make the bar taller or shorter */
-  padding: 0 70px;         /* no top/bottom padding, height controls it now */
-  line-height: 1.5;        /* matches the homepage */
+  height: 77px;
+  padding: 0 70px;
+  line-height: 1.5;
   background-color: var(--dark);
   color: var(--cream);
 }
 
 .site-logo {
   display: block;
-  margin: -10px 0; /* 60px logo, but only takes 40px of header height */
+  margin: -10px 0;
 }
 
 .site-logo img {
@@ -40,7 +40,7 @@
   border-radius: 30px;
 }
 
-/* the brown button: add class="active" to the current page's link */
+/* the brown button */
 .nav-list a.active,
 .nav-list a[aria-current="page"] {
   background: linear-gradient(#7a6558, #5a463b);
@@ -65,7 +65,7 @@
 }
 
 .menu-button {
-  display: none; /* hidden on desktop */
+  display: none;
   background: none;
   border: none;
   color: var(--cream);
