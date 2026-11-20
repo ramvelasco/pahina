@@ -1,158 +1,103 @@
-
 /* ------------------------------------------------------------
    1. VARIABLES
-   Variables store a value once so you can reuse it everywhere.
-   Change a color here and the whole page updates.
-   Contrast ratios are against white (WCAG needs 4.5:1 for text).
    ------------------------------------------------------------ */
 :root {
-  --primary: #5F4434;      /* brand coffee, contrast 10.9:1 on white */
-  --primary-dark: #271c16; /* darker coffee for hover */
-  --text: #5F4434;         /* main text, contrast 15.9:1 on white */
-  --muted: #595959;        /* hints and small text, about 7:1 on white */
-  --background: #F8F6E9;  /* light background color */
-  --surface: #F8EDED;      /* light panel color */
-  --border: #F5CBD6;       /* form borders, 4.5:1 so fields are easy to see */
-  --error: #B00020;
+  --primary: #5F4434;       /* brand coffee, contrast 10.9:1 on white */
+  --primary-dark: #271c16;  /* darker coffee for hover */
+  --text: #5F4434;          /* main text, contrast 15.9:1 on white */
+  --muted: #595959;         /* hints and small text, about 7:1 on white */
+  --background: #F8F6E9;    /* light background color */
+  --surface: #F8EDED;       /* light panel color */
+  --border: #F5CBD6;        /* decorative borders only */
+  --field-border: #8B6F5E;  /* form field borders, about 4.6:1 on white so fields are easy to see */
+  --error: #B00020;         /* error text and borders, about 7:1 on white */
+  --success: #1B5E20;       /* success text, about 7:1 on white */
   --radius: 0.5rem;
 }
-
-
 
 
 /* ------------------------------------------------------------
    2. RESET AND BASE
    ------------------------------------------------------------ */
 
-
-/* box-sizing makes width include padding and border, so sizes act as expected. */
+/* box-sizing makes width include padding and border, sizes act as expected. */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-
 /* The body sets the default font, size, color and spacing for the whole page. */
 body {
-  margin: 0;                         /* removes the browser's default gap */
+  margin: 0;                         
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: "Raleway", sans-serif;
-  font-size: 1rem;                   /* 1rem = the visitor's own text size (usually 16px) */
-  line-height: 1.6;                  /* space between lines makes reading easier */
+  font-size: 1rem;                  
+  line-height: 1.6;
   color: var(--text);
   background: var(--background);
 }
 
-
-h1, h2 {
+/* Heading and paragraph styles are limited to the main content, so the shared navbar and footer keep their own. */
+main h1,
+main h2 {
   font-family: "Ibarra Real Nova", serif;
   line-height: 1.25;
   margin: 0 0 0.75rem;
 }
 
+main h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+main h2 { font-size: 1.375rem; }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.375rem; }
-
-
-p { margin: 0 0 1rem; }
-
-
-input, textarea, button, select {
-  font-family: "Raleway", sans-serif;
-}
-
+main p { margin: 0 0 1rem; }
 
 /* Links: keep the underline so they do not rely on color alone. */
-a {
+main a {
   color: var(--primary);
+  text-decoration: underline;
 }
-a:hover {
+main a:hover {
   color: var(--primary-dark);
 }
 
-
-/* Focus style: shows keyboard users where they are. Never remove it without a replacement. */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+/* Focus style */
+main a:focus-visible,
+main button:focus-visible,
+main input:focus-visible,
+main select:focus-visible,
+main textarea:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 2px;
 }
 
 
-/* On the dark header, a dark outline would disappear, so use white there. */
-.site-header a:focus-visible {
-  outline-color: #FFFFFF;
-}
-
-
-
-
 /* ------------------------------------------------------------
    3. HEADER AND NAVIGATION
-   Flexbox lines up items in a row or column.
+   Moved to css/navbar.css so every page shares one navbar.
    ------------------------------------------------------------ */
-.site-header {
-  display: flex;
-  flex-direction: column;            /* stacked on phones */
-  gap: 0.5rem;                       /* space between the children */
-  padding: 1rem;
-  background: var(--primary);
-  color: #FFFFFF;                    /* white on this maroon is 10.9:1 */
-}
-
-
-.site-name {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-
-/* Remove the bullets and default spacing from the menu list. */
-.nav-list {
-  display: flex;
-  flex-wrap: wrap;                   /* links move to a new line if there is no room */
-  gap: 0.25rem 1rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-
-.nav-list a {
-  display: inline-block;
-  padding: 0.5rem 0;                 /* makes the tap area taller (at least 24px) */
-  color: #FFFFFF;
-}
-
-
-/* The current page gets an underline so it stands out without color alone. */
-.nav-list a[aria-current="page"] {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-
 
 
 /* ------------------------------------------------------------
    4. MAIN CONTENT
    ------------------------------------------------------------ */
 main {
+  flex: 1;                           /* takes the free space so the footer sits at the bottom */
+  width: 100%;
   max-width: 64rem;                  /* keeps lines from getting too wide */
   margin: 0 auto;                    /* auto left and right centers the block */
   padding: 1.5rem 1rem;
 }
 
+.contact-intro {
+  max-width: 48rem;                  /* a comfortable reading width for the intro */
+  margin-bottom: 2rem;
+}
 
 .intro {
   color: var(--muted);
 }
-
 
 /* Phones: form first, contact details below, with space between. */
 .page-layout {
@@ -162,8 +107,6 @@ main {
 }
 
 
-
-
 /* ------------------------------------------------------------
    5. THE FORM
    ------------------------------------------------------------ */
@@ -171,13 +114,11 @@ main {
   margin-bottom: 1.25rem;
 }
 
-
-label {
+.contact-form label {
   display: block;                    /* puts the label on its own line above the field */
   margin-bottom: 0.25rem;
   font-weight: bold;
 }
-
 
 /* The "(required)" word is smaller and not bold. */
 .required {
@@ -185,42 +126,63 @@ label {
   color: var(--muted);
 }
 
-
 .hint {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
   color: var(--muted);
 }
 
-
 /* Style all fields together by listing selectors with commas. */
-input,
-select,
-textarea {
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
   display: block;
   width: 100%;                       /* fills the form width */
-  padding: 0.75rem;                  /* roomy fields are easier to tap */
+  min-height: 3rem;                  /* tall fields are easier to tap */
+  padding: 0.75rem;
   font: inherit;                     /* uses the same font as the page */
+  font-size: 1rem;                   /* 16px stops phones from zooming in when a field is tapped */
   color: var(--text);
   background: #FFFFFF;
-  border: 2px solid var(--border);
+  border: 2px solid var(--field-border);
   border-radius: var(--radius);
 }
 
-
-textarea {
-  resize: vertical;                  /* visitors can make it taller, not wider */
+.contact-form textarea {
+  min-height: 9rem;
+  resize: vertical;
 }
 
+/* Placeholder text needs enough contrast too. */
+.contact-form ::placeholder {
+  color: #6B6B6B;
+  opacity: 1;
+}
+
+/* The field you are typing in gets a darker border. */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+}
 
 /* Show a red border only after the visitor has typed something wrong. */
-input:user-invalid,
-select:user-invalid,
-textarea:user-invalid {
+.contact-form input:user-invalid,
+.contact-form select:user-invalid,
+.contact-form textarea:user-invalid {
   border-color: var(--error);
 }
 
-
+/* Messages from the form script (success or a problem) go here. */
+#form-status {
+  min-height: 1.6em;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+#form-status.error   { color: var(--error); }
+#form-status.success { color: var(--success); }
 
 
 /* ------------------------------------------------------------
@@ -228,6 +190,8 @@ textarea:user-invalid {
    ------------------------------------------------------------ */
 .button {
   display: inline-block;
+  width: 100%;                       /* full width on phones, see the larger screens section */
+  min-height: 2.75rem;               /* 44px tap target */
   padding: 0.75rem 1.5rem;
   font: inherit;
   font-weight: bold;
@@ -236,8 +200,8 @@ textarea:user-invalid {
   border: 2px solid var(--primary);
   border-radius: var(--radius);
   cursor: pointer;                   /* shows the hand pointer */
+  transition: background 0.2s, border-color 0.2s;
 }
-
 
 /* Hover gives feedback when the mouse is over the button. */
 .button:hover {
@@ -246,55 +210,29 @@ textarea:user-invalid {
 }
 
 
-
-
 /* ------------------------------------------------------------
    7. CONTACT DETAILS (ASIDE)
    ------------------------------------------------------------ */
 .contact-info {
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
 }
 
+.contact-info p { margin: 0; }
 
 .spaced { margin-top: 1rem; }
-
 
 address {
   font-style: normal;                /* the browser makes address italic by default */
 }
 
 
-
-
 /* ------------------------------------------------------------
    8. FOOTER
+   Moved to css/footer.css so every page shares one footer.
    ------------------------------------------------------------ */
-.site-footer {
-  padding: 1.5rem 1rem;
-  text-align: center;
-  background: var(--surface);
-}
-
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;           /* centers the links in the row */
-  gap: 0.25rem 1.25rem;
-  margin: 0 0 1rem;
-  padding: 0;
-  list-style: none;
-}
-
-
-.footer-links a {
-  display: inline-block;
-  padding: 0.5rem 0;
-}
-
-
 
 
 /* ------------------------------------------------------------
@@ -305,20 +243,9 @@ address {
    ------------------------------------------------------------ */
 @media (min-width: 48em) {
 
-
-  /* Put the store name and menu on one row. */
-  .site-header {
-    flex-direction: row;
-    justify-content: space-between;  /* name on the left, menu on the right */
-    align-items: center;
-    padding: 1rem 2rem;
-  }
-
-
   main {
     padding: 2rem;
   }
-
 
   /* Form on the left, contact details on the right. */
   .page-layout {
@@ -326,18 +253,19 @@ address {
     align-items: flex-start;
   }
 
-
   .contact-form {
     flex: 2;                         /* takes two parts of the space */
   }
 
-
   .contact-info {
     flex: 1;                         /* takes one part */
   }
+
+  /* The button only needs to be as wide as its text. */
+  .button {
+    width: auto;
+  }
 }
-
-
 
 
 /* ------------------------------------------------------------
@@ -350,7 +278,3 @@ address {
     animation: none !important;
   }
 }
-
-
-
-
