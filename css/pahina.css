@@ -156,21 +156,6 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
 .spaced { margin-top: 16px; }
 address { font-style: normal; }
 
-/* ===== FOOTER ===== */
-.product-footer { background: var(--light-pink); padding: 30px 90px; }
-.product-footer-main { display: flex; justify-content: space-between; gap: 40px; }
-.product-footer-brand { max-width: 460px; }
-.product-footer-logo { font-family: var(--heading-font); font-size: 5.5rem; line-height: 1.1; color: var(--brown); }
-.product-footer-text { font-size: 0.85rem; margin-top: 25px; }
-.product-footer-column { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
-.product-footer-column h4 { font-family: var(--heading-font); font-size: 0.8rem; margin-bottom: 6px; }
-.product-footer-column a { font-size: 0.8rem; }
-.product-footer-column a:hover { color: var(--brown); text-decoration: underline; }
-.product-socials { display: grid; grid-template-columns: repeat(3, 44px); gap: 16px 24px; }
-.product-socials img { width: 44px; height: 44px; object-fit: contain; }
-.product-copyright { background: var(--header); color: var(--cream); text-align: center; padding: 35px 20px; font-size: 0.9rem; }
-.product-copyright a { color: var(--cream); text-decoration: underline; }
-
 /* ===== BIGGER SCREENS ===== */
 @media (min-width: 768px) {
   .contact-page main { padding: 32px; }
