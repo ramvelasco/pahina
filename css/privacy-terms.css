@@ -345,100 +345,62 @@ main{
 /* ========================================
    9. FOOTER
    ======================================== */
-.privacy-footer,
-.terms-footer {
-  background-color: #f5cbd6;
-  padding: 30px 90px;
-}
+<footer class="home-footer">
+    <div class="home-footer-main">
+      <div class="home-footer-brand">
+        <p class="home-footer-logo">PAH/NA</p>
+        <p class="home-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
+      </div>
 
-.privacy-footer-main,
-.terms-footer-main {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+      <nav class="home-footer-column" aria-label="Explore">
+        <h2><strong>EXPLORE</strong></h2>
+        <a href="index.html">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#about">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
 
-.privacy-footer-brand,
-.terms-footer-brand {
-  max-width: 460px;
-}
+      <nav class="home-footer-column" aria-label="Information">
+        <h2><strong>INFORMATION</strong></h2>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </nav>
 
-.privacy-footer-logo,
-.terms-footer-logo {
-  font-family: var(--heading-font);
-  font-size: 5.5rem;
-  line-height: 1.1;
-  color: var(--primary);
-}
+      <div class="home-footer-column">
+        <h2>><strong>FOLLOW PAH/NA></strong></h2>
+        <div class="home-socials">
+          <img src="images/fb.png" alt="Facebook" width="32" height="32">
+          <img src="images/ig.png" alt="Instagram" width="32" height="32">
+          <img src="images/messenger.png" alt="Messenger" width="32" height="32">
+          <img src="images/threads.png" alt="Threads" width="32" height="32">
+          <img src="images/x.png" alt="X" width="32" height="32">
+          <img src="images/tiktok.png" alt="TikTok" width="32" height="32">
+        </div>
+      </div>
+    </div>
 
-.privacy-footer-text,
-.terms-footer-text {
-  font-size: 0.85rem;
-  margin-top: 25px;
-}
+    <div class="home-copyright">
+      <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
+    </div>
+  </footer>
 
-.privacy-footer-column,
-.terms-footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 10px;
-}
+  <!-- mobile menu button + footer year -->
+  <script>
+    var menuButton = document.getElementById("menuButton");
+    var navLinks = document.getElementById("navLinks");
 
-.privacy-footer-column h4,
-.terms-footer-column h4 {
-  font-family: var(--heading-font);
-  font-size: 0.8rem;
-  margin-bottom: 6px;
-  color: var(--primary-dark);
-}
+    if (menuButton && navLinks) {
+      menuButton.addEventListener("click", function () {
+        var isOpen = navLinks.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", isOpen);
+      });
+    }
 
-.privacy-footer-column a,
-.terms-footer-column a {
-  font-size: 0.8rem;
-}
-
-.privacy-footer-column a:hover,
-.terms-footer-column a:hover {
-  color: var(--cream);
-}
-
-.privacy-socials,
-.terms-socials {
-  display: grid;
-  grid-template-columns: repeat(3, 44px);
-  gap: 16px 24px;
-}
-
-.privacy-socials img,
-.terms-socials img {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-}
-
-/* ========================================
-   10. COPYRIGHT
-   ======================================== */
-.privacy-copyright,
-.terms-copyright {
-    background-color: var(--primary-dark);
-    color: var(--cream);
-    text-align: center;
-    padding: 35px 20px;
-    font-size: 0.9rem;
-}
-
-.privacy-copyright p,
-.terms-copyright p {
-    margin: 0;
-}
-
-.privacy-copyright a,
-.terms-copyright a {
-    color: var(--white);
-    text-decoration: underline;
-}
+    var yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
 
 /* ========================================
    11. KEYBOARD ACCESSIBILITY
