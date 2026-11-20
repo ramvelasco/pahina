@@ -8,29 +8,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/pahina.css">
-  <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="site-header">
-    <a href="index.html" class="site-logo" aria-label="PAH/NA home">
-      <img src="images/logo.png" alt="PAH/NA" width="158" height="60">
+  <header class="home-navbar">
+    <a href="index.html" class="home-logo" aria-label="PAH/NA home">
+      <img src="images/logo.png" alt="PAH/NA" width="105" height="40">
     </a>
 
-    <input type="checkbox" id="navToggle" class="nav-toggle" aria-label="Toggle menu">
-    <label for="navToggle" class="menu-button" aria-hidden="true">&#9776;</label>
+    <button class="home-menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
 
-    <nav aria-label="Main" id="navLinks">
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#shop" aria-current="page">Shop</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <nav class="home-nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#shop" class="active" aria-current="page">Shop</a>
+      <a href="index.html#about">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <div class="header-icons">
@@ -104,46 +101,49 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="product-footer">
-    <div class="product-footer-main">
-      <div class="product-footer-brand">
-        <p class="product-footer-logo">PAH/NA</p>
-        <p class="product-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
+  <footer class="home-footer">
+    <div class="home-footer-main">
+      <div class="home-footer-brand">
+        <p class="home-footer-logo">PAH/NA</p>
+        <p class="home-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
       </div>
 
-      <nav class="product-footer-column" aria-label="Explore">
-        <h2><strong>EXPLORE</strong></h2>
+      <nav class="home-footer-column" aria-label="Explore">
+        <h2>EXPLORE</h2>
         <a href="index.html">Home</a>
         <a href="index.html#shop">Shop</a>
         <a href="index.html#about">About Us</a>
         <a href="contact.html">Contact Us</a>
       </nav>
 
-      <nav class="product-footer-column" aria-label="Information">
-        <h2><strong>INFORMATION</strong></h2>
+      <nav class="home-footer-column" aria-label="Information">
+        <h2>INFORMATION</h2>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Use</a>
       </nav>
 
-      <div class="product-footer-column">
-        <h2><strong>FOLLOW PAH/NA</strong></h2>
-        <div class="product-socials">
-          <img src="images/fb.png" alt="Facebook" width="44" height="44">
-          <img src="images/ig.png" alt="Instagram" width="44" height="44">
-          <img src="images/messenger.png" alt="Messenger" width="44" height="44">
-          <img src="images/threads.png" alt="Threads" width="44" height="44">
-          <img src="images/x.png" alt="X" width="44" height="44">
-          <img src="images/tiktok.png" alt="TikTok" width="44" height="44">
+      <div class="home-footer-column">
+        <h2>FOLLOW PAH/NA</h2>
+        <div class="home-socials">
+          <img src="images/fb.png" alt="Facebook" width="32" height="32">
+          <img src="images/ig.png" alt="Instagram" width="32" height="32">
+          <img src="images/messenger.png" alt="Messenger" width="32" height="32">
+          <img src="images/threads.png" alt="Threads" width="32" height="32">
+          <img src="images/x.png" alt="X" width="32" height="32">
+          <img src="images/tiktok.png" alt="TikTok" width="32" height="32">
         </div>
       </div>
     </div>
 
-    <div class="product-copyright">
-      <p>&copy; 2026 <strong>PAH/NA</strong> || <a href="privacy.html">Privacy Policy</a> &amp; <a href="terms.html">Terms of Use</a></p>
+    <div class="home-copyright">
+      <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 
-  <!-- quantity and status (delete if your existing script already does this) -->
+  <!-- menu + year -->
+  <script src="js/script.js"></script>
+
+  <!-- quantity and status -->
   <script>
     const qty = document.getElementById("qty");
     const status = document.getElementById("status");
