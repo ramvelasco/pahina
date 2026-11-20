@@ -1,350 +1,197 @@
-/* ==== PAH/NA product page styles ==== */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+:root {
+  --brown: #5f4434;
+  --dark: #3b2a22;
+  --light-pink: #f5cbd6;
+  --pink: #f5cbd6;
+  --cream: #f8f6e9;
+  --heading-font: "Ibarra Real Nova", serif;
+  --header: #3b2a22;
+  --accent: #3b2a22;
+  --accent-dark: #271c16;
+  --page: #f8f4e6;
+  --primary: #5F4434;
+  --primary-dark: #271c16;
+  --muted: #595959;
+  --surface: #F8EDED;
+  --error: #B00020;
+  --radius: 0.5rem;
+  --inset: 70px;
 }
 
-body {
-  margin: 0;
-  background-color: #f8f6e9;   /* cream */
-  color: #3b2a22;              /* dark brown */
-  font-family: "Raleway", sans-serif;
-  line-height: 1.5;
-}
+.theme-rose { --accent: #b83b5e; --accent-dark: #8f2c47; --page: #fdf1ee; }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-a {
-  color: inherit;
-}
+body { background: var(--page); color: var(--dark); font-family: "Raleway", sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; width: 100%; }
+a { color: var(--dark); text-decoration: none; }
+img { max-width: 100%; height: auto; }
 
-/* hides text visually but keeps it for screen readers */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* === Page layout === */
-.content {
-  padding: 40px 30px 90px;
-}
+:focus-visible { outline: 3px solid var(--dark); outline-offset: 2px; }
 
-.product {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  grid-template-areas:
-    "path   path"
-    "main   right"
-    "others right";
-  column-gap: 50px;
-  align-items: start;
+/* ===== HEADER / NAV ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px var(--inset);
+  background-color: var(--dark);
+  color: var(--cream);
 }
+.site-header a { color: var(--cream); }
+.site-header :focus-visible { outline-color: var(--cream); }
 
-.path {
-  grid-area: path;
-  margin: 0 0 15px;
-  font-size: 0.95rem;
+.logo { display: block; height: 60px; width: auto; margin: -10px 0; }
+
+.nav-list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  font-size: 1rem;
 }
-
-.path a:hover {
+.nav-list a {
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-weight: 400;
+}
+.nav-list a[aria-current="page"] {
+  background: linear-gradient(#7a6558, #5a463b);
+  font-weight: 700;
   text-decoration: underline;
 }
+.nav-list a:hover:not([aria-current="page"]) { color: var(--pink); }
 
-/* === Photos === */
-.main-pic {
-  grid-area: main;
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
+.header-icons { display: flex; align-items: center; gap: 13px; }
+.header-icons img { width: 32px; height: 32px; object-fit: contain; }
 
-.other-colors {
-  grid-area: others;
+/* ===== PRODUCT PAGE ===== */
+.content { padding: 24px var(--inset) 60px; }
+
+/* left: pictures | right: info (cqw makes the text follow the width of this area) */
+.product {
+  container-type: inline-size;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 12px;
+  grid-template-columns: 1.05fr 1fr;
+  grid-template-areas: "path path" "pic info" "more info";
+  gap: 14px clamp(28px, 3.4vw, 70px);
+  max-width: 1700px;
+  margin: 0 auto;
+}
+.path { grid-area: path; font-size: clamp(13px, 1vw, 18px); }
+.path a:hover { text-decoration: underline; }
+
+.main-pic { grid-area: pic; align-self: start; display: block; width: 100%; }
+.main-pic, .other-colors img { border: 1px solid var(--dark); border-radius: 10px; }
+.other-colors { grid-area: more; display: flex; gap: 14px; }
+.other-colors img { width: calc(50% - 7px); }
+
+/* INFORMATION */
+.right { grid-area: info; display: flex; flex-direction: column; justify-content: space-between; gap: 0.5em; font-size: clamp(14px, 1.7cqw, 34px); }
+.right h1 { font-family: var(--heading-font); font-size: 2.3em; font-weight: 700; line-height: 1.1; }
+.right .price { font-family: "Raleway", sans-serif; font-size: 1.9em; font-weight: 500; line-height: 1.2; }
+.right .desc { line-height: 1.45; }
+
+/* Color / Size / Quantity */
+.option { border: none; min-width: 0; }
+.option legend, .option h3 { font-size: 1em; font-weight: 700; padding: 0; margin-bottom: 0.55em; }
+.colors, .sizes { display: flex; flex-wrap: wrap; gap: 0.7em; }
+.colors label, .sizes label { position: relative; display: block; }
+
+.dot { display: block; width: 1.75em; height: 1.75em; border: 1px solid var(--dark); border-radius: 50%; cursor: pointer; }
+.white { background: #fff; }
+.brown { background: var(--brown); }
+.black { background: #000; }
+.colors input:checked + .dot { outline: 2px solid var(--accent); outline-offset: 3px; }
+.colors input:focus-visible + .dot, .sizes input:focus-visible + span { outline: 3px solid var(--dark); outline-offset: 3px; }
+
+.sizes span { display: block; padding: 0.28em 0.7em; font-size: 0.9em; font-weight: 700; border: 2px solid var(--dark); border-radius: 8px; cursor: pointer; }
+.sizes span:hover { background: rgba(59, 42, 34, 0.08); }
+.sizes input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.quantity { display: flex; justify-content: space-between; align-items: center; width: 6.8em; padding: 0.2em 0.8em; border: 2px solid var(--dark); border-radius: 8px; }
+.quantity button { background: none; border: none; color: var(--dark); font-size: 1.5em; line-height: 1; cursor: pointer; }
+.quantity span { font-size: 0.8em; }
+
+#status { font-size: 0.85em; font-weight: 600; }
+#status:empty { display: none; }
+
+/* buttons share the whole width */
+.buttons { display: flex; gap: 1.4em; }
+.buttons button { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0.8em 0; font: inherit; font-size: 0.9em; font-weight: 700; border: 2px solid var(--accent); border-radius: 10px; cursor: pointer; }
+.buttons svg { width: 1.1em; height: 1.1em; }
+.order { background: transparent; color: var(--accent); }
+.order:hover { background: rgba(59, 42, 34, 0.08); }
+.cart { background: var(--accent); color: #fff; }
+.cart:hover { background: var(--accent-dark); }
+
+/* ===== CONTACT PAGE ===== */
+.contact-page { background: var(--cream); color: var(--brown); line-height: 1.6; }
+.contact-page main { max-width: 64rem; margin: 0 auto; padding: 24px 16px; }
+.contact-page main h1, .contact-page main h2 { font-family: var(--heading-font); line-height: 1.25; margin-bottom: 12px; }
+.contact-page main h1 { font-size: 2rem; }
+.contact-page main h2 { font-size: 1.375rem; }
+.contact-page main p { margin-bottom: 16px; }
+.contact-page main a { color: var(--primary); text-decoration: underline; }
+.contact-page main a:hover { color: var(--primary-dark); }
+
+.intro, .required, .hint { color: var(--muted); }
+.required { font-weight: normal; }
+.hint { font-size: 0.9rem; }
+
+.page-layout { display: flex; flex-direction: column; gap: 32px; }
+.form-group { margin-bottom: 20px; }
+.contact-form label { display: block; margin-bottom: 4px; font-weight: bold; }
+.contact-form input, .contact-form select, .contact-form textarea { display: block; width: 100%; padding: 12px; font: inherit; color: var(--brown); background: #fff; border: 2px solid var(--light-pink); border-radius: var(--radius); }
+.contact-form textarea { resize: vertical; }
+.contact-form :user-invalid { border-color: var(--error); }
+
+.button { display: inline-block; padding: 12px 24px; font: inherit; font-weight: bold; color: #fff; background: var(--primary); border: 2px solid var(--primary); border-radius: var(--radius); cursor: pointer; }
+.button:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+
+.contact-info { padding: 16px 20px; background: var(--surface); border-radius: var(--radius); }
+.spaced { margin-top: 16px; }
+address { font-style: normal; }
+
+/* ===== FOOTER ===== */
+.product-footer { background: var(--light-pink); padding: 30px 90px; }
+.product-footer-main { display: flex; justify-content: space-between; gap: 40px; }
+.product-footer-brand { max-width: 460px; }
+.product-footer-logo { font-family: var(--heading-font); font-size: 5.5rem; line-height: 1.1; color: var(--brown); }
+.product-footer-text { font-size: 0.85rem; margin-top: 25px; }
+.product-footer-column { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
+.product-footer-column h4 { font-family: var(--heading-font); font-size: 0.8rem; margin-bottom: 6px; }
+.product-footer-column a { font-size: 0.8rem; }
+.product-footer-column a:hover { color: var(--brown); text-decoration: underline; }
+.product-socials { display: grid; grid-template-columns: repeat(3, 44px); gap: 16px 24px; }
+.product-socials img { width: 44px; height: 44px; object-fit: contain; }
+.product-copyright { background: var(--header); color: var(--cream); text-align: center; padding: 35px 20px; font-size: 0.9rem; }
+.product-copyright a { color: var(--cream); text-decoration: underline; }
+
+/* ===== BIGGER SCREENS ===== */
+@media (min-width: 768px) {
+  .contact-page main { padding: 32px; }
+  .page-layout { flex-direction: row; align-items: flex-start; }
+  .contact-form { flex: 2; }
+  .contact-info { flex: 1; }
 }
 
-.other-colors img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+/* ===== SMALLER SCREENS ===== */
+@media (max-width: 800px) {
+  :root { --inset: 20px; }
 
-/* === Product info === */
-.right {
-  grid-area: right;
-}
+  .site-header { flex-wrap: wrap; gap: 12px; padding: 20px var(--inset); }
+  .site-header nav { order: 3; width: 100%; }
+  .nav-list { justify-content: center; flex-wrap: wrap; gap: 8px 12px; }
 
-.right h1 {
-  margin: 0 0 10px;
-  font-family: "Ibarra Real Nova", serif;
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: #3b2a22;
-}
-
-.price {
-  margin: 0 0 18px;
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.desc {
-  margin: 0 0 14px;
-  line-height: 1.6;
-}
-
-.fabric {
-  margin: 0 0 26px;
-}
-
-/* === Option groups (color, size, quantity) === */
-.option {
-  border: none;
-  padding: 0;
-  margin: 0 0 24px;
-  min-width: 0;
-}
-
-.option legend,
-.option h3 {
-  padding: 0;
-  margin: 0 0 10px;
-  font-family: "Raleway", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-/* hide the real radio buttons, the pretty ones are shown instead */
-.colors input,
-.sizes input {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-}
-
-/* color dots */
-.colors {
-  display: flex;
-  gap: 14px;
-}
-
-.colors label {
-  position: relative;
-  cursor: pointer;
-}
-
-.dot {
-  display: block;
-  width: 40px;
-  height: 40px;
-  border: 2px solid #5f4434;
-  border-radius: 50%;
-}
-
-.dot.white { background-color: #fffdf0; }
-.dot.brown { background-color: #5f4434; }
-.dot.black { background-color: #000; }
-
-.colors input:checked + .dot {
-  outline: 3px solid #ffbab3;   /* pink ring on the chosen color */
-  outline-offset: 2px;
-}
-
-.colors input:focus-visible + .dot {
-  outline: 3px solid #3b2a22;
-  outline-offset: 2px;
-}
-
-/* size buttons */
-.sizes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.sizes label {
-  position: relative;
-  cursor: pointer;
-}
-
-.sizes label span {
-  display: inline-block;
-  min-width: 54px;
-  padding: 8px 14px;
-  text-align: center;
-  font-weight: 600;
-  border: 2px solid #5f4434;
-  border-radius: 8px;
-  background: transparent;
-  transition: background 0.2s, color 0.2s;
-}
-
-.sizes label:hover span {
-  background: #f5cbd6;
-}
-
-.sizes input:checked + span {
-  background: #5f4434;
-  color: #f8f6e9;
-}
-
-.sizes input:focus-visible + span {
-  outline: 3px solid #3b2a22;
-  outline-offset: 2px;
-}
-
-/* quantity counter */
-.quantity {
-  display: inline-flex;
-  align-items: center;
-  border: 2px solid #5f4434;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.quantity button {
-  width: 44px;
-  height: 44px;
-  border: none;
-  background: none;
-  color: #5f4434;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.quantity button:hover {
-  background: #f5cbd6;
-}
-
-#count {
-  min-width: 50px;
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-/* message from the script (for example "Please choose a size") */
-#status {
-  min-height: 1.5em;
-  margin: 0 0 14px;
-  font-weight: 600;
-  color: #5f4434;
-}
-
-/* === Order Now / Add to Cart buttons === */
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.buttons button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 28px;
-  font-family: "Raleway", sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.buttons.wide button {
-  flex: 1 1 200px;
-}
-
-.buttons button svg {
-  width: 24px;
-  height: 24px;
-}
-
-.order {
-  background: #5f4434;
-  color: #f8f6e9;
-  border: 2px solid #5f4434;
-}
-
-.order:hover {
-  background: #3b2a22;
-}
-
-.cart {
-  background: linear-gradient(to bottom, #f8f6e9, #c9b8a8);
-  color: #3b2a22;
-  border: 2px solid #5f4434;
-}
-
-.cart:hover {
-  background: linear-gradient(to bottom, #f5cbd6, #ffbab3);
-}
-
-/* keyboard focus outline */
-.buttons button:focus-visible,
-.quantity button:focus-visible,
-.path a:focus-visible {
-  outline: 3px solid #3b2a22;
-  outline-offset: 2px;
-}
-
-/* === Tablet: photos on top, info below === */
-@media (max-width: 900px) {
-  .content {
-    padding: 30px 20px 70px;
-  }
-
-  .product {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "path"
-      "main"
-      "others"
-      "right";
-  }
-
-  .right {
-    margin-top: 28px;
-  }
-
-  .right h1 {
-    font-size: 2.6rem;
-  }
-}
-
-/* === Mobile === */
-@media (max-width: 650px) {
-  .content {
-    padding: 24px 16px 60px;
-  }
-
-  .right h1 {
-    font-size: 2.1rem;
-  }
-
-  .buttons.wide button {
-    flex: 1 1 100%;
-  }
+  /* everything stacks in one column on phones */
+  .product { grid-template-columns: 1fr; grid-template-areas: "path" "pic" "more" "info"; }
+  .right { gap: 0.9em; font-size: clamp(16px, 4.2vw, 22px); }
+  .product-footer-main { flex-direction: column; }
+  .content { padding-bottom: 50px; }
+  .product-footer { padding: 30px 20px; }
+  .product-footer-logo { font-size: 3.5rem; }
 }
