@@ -34,17 +34,24 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
 
 /* ===== HEADER / NAV ===== */
 .site-header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px var(--inset);
+  flex-shrink: 0;
+  height: 77px;
+  min-height: 77px;
+  max-height: 77px;
+  padding: 0 var(--inset);
+  line-height: 1.5;
   background-color: var(--dark);
   color: var(--cream);
 }
 .site-header a { color: var(--cream); }
 .site-header :focus-visible { outline-color: var(--cream); }
 
-.logo { display: block; height: 60px; width: auto; margin: -10px 0; }
+.site-logo { display: block; margin: -10px 0; }
+.site-logo img { display: block; height: 60px; width: auto; max-width: none; }
 
 .nav-list {
   display: flex;
@@ -53,11 +60,13 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
   font-size: 1rem;
 }
 .nav-list a {
-  display: inline-block;
+  display: block;
   padding: 8px 22px;
   border-radius: 30px;
   font-weight: 400;
 }
+
+/* the brown pill: the link for the section you are in */
 .nav-list a[aria-current="page"] {
   background: linear-gradient(#7a6558, #5a463b);
   font-weight: 700;
@@ -67,6 +76,21 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
 
 .header-icons { display: flex; align-items: center; gap: 13px; }
 .header-icons img { width: 32px; height: 32px; object-fit: contain; }
+
+/* mobile menu button (CSS only, no JavaScript) */
+.nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.menu-button {
+  display: none;
+  color: var(--cream);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.nav-toggle:focus-visible + .menu-button { outline: 3px solid var(--cream); outline-offset: 4px; }
+
+@media (max-width: 1000px) {
+  .site-header { padding: 0 40px; }
+  .nav-list { gap: 16px; }
+}
 
 /* ===== PRODUCT PAGE ===== */
 .content { padding: 24px var(--inset) 60px; }
@@ -140,43 +164,4 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
 
 .intro, .required, .hint { color: var(--muted); }
 .required { font-weight: normal; }
-.hint { font-size: 0.9rem; }
-
-.page-layout { display: flex; flex-direction: column; gap: 32px; }
-.form-group { margin-bottom: 20px; }
-.contact-form label { display: block; margin-bottom: 4px; font-weight: bold; }
-.contact-form input, .contact-form select, .contact-form textarea { display: block; width: 100%; padding: 12px; font: inherit; color: var(--brown); background: #fff; border: 2px solid var(--light-pink); border-radius: var(--radius); }
-.contact-form textarea { resize: vertical; }
-.contact-form :user-invalid { border-color: var(--error); }
-
-.button { display: inline-block; padding: 12px 24px; font: inherit; font-weight: bold; color: #fff; background: var(--primary); border: 2px solid var(--primary); border-radius: var(--radius); cursor: pointer; }
-.button:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
-
-.contact-info { padding: 16px 20px; background: var(--surface); border-radius: var(--radius); }
-.spaced { margin-top: 16px; }
-address { font-style: normal; }
-
-/* ===== BIGGER SCREENS ===== */
-@media (min-width: 768px) {
-  .contact-page main { padding: 32px; }
-  .page-layout { flex-direction: row; align-items: flex-start; }
-  .contact-form { flex: 2; }
-  .contact-info { flex: 1; }
-}
-
-/* ===== SMALLER SCREENS ===== */
-@media (max-width: 800px) {
-  :root { --inset: 20px; }
-
-  .site-header { flex-wrap: wrap; gap: 12px; padding: 20px var(--inset); }
-  .site-header nav { order: 3; width: 100%; }
-  .nav-list { justify-content: center; flex-wrap: wrap; gap: 8px 12px; }
-
-  /* everything stacks in one column on phones */
-  .product { grid-template-columns: 1fr; grid-template-areas: "path" "pic" "more" "info"; }
-  .right { gap: 0.9em; font-size: clamp(16px, 4.2vw, 22px); }
-  .product-footer-main { flex-direction: column; }
-  .content { padding-bottom: 50px; }
-  .product-footer { padding: 30px 20px; }
-  .product-footer-logo { font-size: 3.5rem; }
-}
+.hint {
