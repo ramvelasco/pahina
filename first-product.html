@@ -9,16 +9,20 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <img class="logo" src="images/logo.png" alt="PAH/NA" width="131.25" height="50">
+  <!-- === HEADER (same look as the homepage) === -->
+  <header class="home-navbar">
+    <a href="index.html" class="home-logo" aria-label="PAH/NA home">
+      <img src="images/logo.png" alt="PAH/NA" width="105" height="40">
+    </a>
 
-    <nav aria-label="Main">
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html" aria-current="page">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <!-- the hamburger button only shows on mobile -->
+    <button class="home-menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
+
+    <nav class="home-nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active" aria-current="page">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <div class="header-icons">
@@ -93,31 +97,31 @@
     </div>
   </main>
 
-  <footer class="product-footer">
-    <div class="product-footer-main">
-      <div class="product-footer-brand">
-        <p class="product-footer-logo">PAH/NA</p>
-        <p class="product-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
+  <!-- === FOOTER (copied from the homepage) === -->
+  <footer class="home-footer">
+    <div class="home-footer-main">
+      <div class="home-footer-brand">
+        <p class="home-footer-logo">PAH/NA</p>
+        <p class="home-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
       </div>
 
-      <div class="product-footer-column">
-        <h4>EXPLORE</h4>
+      <nav class="home-footer-column" aria-label="Explore">
+        <h2>EXPLORE</h2>
         <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About Us</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#about">About Us</a>
         <a href="contact.html">Contact Us</a>
-      </div>
+      </nav>
 
-      <div class="product-footer-column">
-        <h4>INFORMATION</h4>
+      <nav class="home-footer-column" aria-label="Information">
+        <h2>INFORMATION</h2>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Use</a>
-        <a href="faqs.html">FAQs</a>
-      </div>
+      </nav>
 
-      <div class="product-footer-column">
-        <h4>FOLLOW PAH/NA</h4>
-        <div class="product-socials">
+      <div class="home-footer-column">
+        <h2>FOLLOW PAH/NA</h2>
+        <div class="home-socials">
           <img src="images/fb.png" alt="Facebook" width="32" height="32">
           <img src="images/ig.png" alt="Instagram" width="32" height="32">
           <img src="images/messenger.png" alt="Messenger" width="32" height="32">
@@ -127,11 +131,11 @@
         </div>
       </div>
     </div>
-  </footer>
 
-  <div class="product-copyright">
-    <p>&copy; 2026 <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
-  </div>
+    <div class="home-copyright">
+      <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
+    </div>
+  </footer>
 
   <script src="solo product.js"></script>
 
