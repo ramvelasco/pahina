@@ -10,7 +10,222 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- your product page styles (keep your original pahina.css) -->
   <link rel="stylesheet" href="css/pahina.css">
+
+  <!-- header + footer styles (inside the page so they always load) -->
+  <style>
+    /* colors and fonts */
+    header.home-navbar,
+    footer.home-footer {
+      --brown: #5f4434;
+      --dark: #3b2a22;
+      --pink: #ffbab3;
+      --light-pink: #f5cbd6;
+      --cream: #f8f6e9;
+      --heading-font: "Ibarra Real Nova", serif;
+      --body-font: "Raleway", sans-serif;
+      font-family: "Raleway", sans-serif;
+      line-height: 1.5;
+    }
+
+    /* reset, only inside the header and footer */
+    header.home-navbar *,
+    footer.home-footer * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header.home-navbar a,
+    footer.home-footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* === Nav === */
+    header.home-navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 70px;
+      background-color: #3b2a22;   /* dark brown bar */
+      color: #f8f6e9;              /* cream text */
+    }
+
+    header.home-navbar .home-logo {
+      font-family: "Ibarra Real Nova", serif;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      margin: -10px 0;
+    }
+
+    header.home-navbar .home-logo img {
+      display: block;
+      height: 60px;
+      width: auto;
+    }
+
+    header.home-navbar nav.home-nav-links {
+      display: flex;
+      gap: 40px;
+      font-size: 1rem;
+    }
+
+    header.home-navbar nav.home-nav-links a {
+      color: #f8f6e9;              /* cream links */
+      background: none;
+      font-weight: 400;
+      text-decoration: none;
+      padding: 8px 22px;
+      border-radius: 30px;
+    }
+
+    /* the active page (Shop): brown pill, bold, underlined */
+    header.home-navbar nav.home-nav-links a.active {
+      background: linear-gradient(#7a6558, #5a463b);
+      color: #f8f6e9;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* hover color on the other links */
+    header.home-navbar nav.home-nav-links a:hover:not(.active) {
+      color: #ffbab3;              /* pink */
+    }
+
+    header.home-navbar .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    header.home-navbar .header-icons img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    header.home-navbar button.home-menu-button {
+      display: none;               /* hidden on desktop */
+      background: none;
+      border: none;
+      color: #f8f6e9;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* === Footer === */
+    footer.home-footer {
+      background: #f5cbd6;
+      color: #3b2a22;
+    }
+
+    footer.home-footer .home-footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 30px 90px;
+    }
+
+    footer.home-footer .home-footer-brand { max-width: 460px; }
+
+    footer.home-footer .home-footer-logo {
+      font-family: "Ibarra Real Nova", serif;
+      font-size: 5.5rem;
+      line-height: 1.1;
+      color: #5f4434;
+    }
+
+    footer.home-footer .home-footer-text {
+      font-size: 0.85rem;
+      margin-top: 25px;
+    }
+
+    footer.home-footer .home-footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: 10px;
+    }
+
+    footer.home-footer .home-footer-column h2 {
+      font-family: "Ibarra Real Nova", serif;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+    }
+
+    footer.home-footer .home-footer-column a { font-size: 0.8rem; }
+
+    footer.home-footer .home-footer-column a:hover {
+      color: #5f4434;
+      text-decoration: underline;
+    }
+
+    footer.home-footer .home-socials {
+      display: grid;
+      grid-template-columns: repeat(3, 44px);
+      gap: 16px 24px;
+    }
+
+    footer.home-footer .home-socials img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+
+    footer.home-footer .home-copyright {
+      background: #3b2a22;
+      color: #f8f6e9;
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer.home-footer .home-copyright a {
+      color: #f8f6e9;
+      text-decoration: underline;
+    }
+
+    /* visible focus outline for keyboard users */
+    header.home-navbar :focus-visible { outline: 3px solid #f8f6e9; outline-offset: 2px; }
+    footer.home-footer :focus-visible { outline: 3px solid #3b2a22; outline-offset: 2px; }
+    footer.home-footer .home-copyright :focus-visible { outline-color: #f8f6e9; }
+
+    /* === Tablet === */
+    @media (max-width: 1000px) {
+      header.home-navbar { padding: 20px 30px; }
+      header.home-navbar nav.home-nav-links { gap: 10px; }
+      footer.home-footer .home-footer-main { padding: 30px 40px; flex-wrap: wrap; }
+    }
+
+    /* === Mobile footer === */
+    @media (max-width: 800px) {
+      footer.home-footer .home-footer-main { flex-direction: column; padding: 30px 20px; }
+      footer.home-footer .home-footer-logo { font-size: 3.5rem; }
+    }
+
+    /* === Mobile nav === */
+    @media (max-width: 650px) {
+      header.home-navbar {
+        flex-wrap: wrap;
+        padding: 16px 20px;
+      }
+
+      header.home-navbar button.home-menu-button { display: block; }
+      header.home-navbar .header-icons { display: none; }
+
+      header.home-navbar nav.home-nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+        gap: 5px;
+      }
+
+      header.home-navbar nav.home-nav-links.open { display: flex; }
+    }
+  </style>
 </head>
 <body>
 
