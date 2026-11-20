@@ -381,7 +381,6 @@ h1, h2, h3 { /* headings use the heading font */
 }
 
 .home-about-image { /* the image on the left */
-  border: 2px solid var(--cream);
   flex: 1;
   height: 430px;
   overflow: hidden;
