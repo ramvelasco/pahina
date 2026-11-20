@@ -114,30 +114,31 @@ input, textarea, button, select {
     height: auto; 
 }
 
-.home-nav-links a.active {
-  background: linear-gradient(#7a6558, #5a463b);
-  font-weight: 700;
-  text-decoration: underline;
+.nav-list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  font-size: 1rem;
 }
 
-.nav-list { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 35px; 
-    list-style: none; 
-}
-
-.nav-list a { 
-    display: inline-block; 
-    padding: 8px 0; 
-    font-weight: 500; 
+.nav-list a {
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-weight: 500;
 }
 
 .nav-list a[aria-current="page"] {
   background: linear-gradient(#7a6558, #5a463b);
   font-weight: 700;
   text-decoration: underline;
+}
+
+.nav-list a:hover:not([aria-current="page"]) { color: var(--pink); }
+
+/* HAMBURGER BUTTON */
+.menu-button {
+    display: none;
 }
 
 /* ========================================
@@ -345,7 +346,6 @@ main{
 .terms-footer {
   background-color: #f5cbd6;
   padding: 30px 90px;
-  border-top: 3px solid var(--border);
 }
 
 .privacy-footer-main,
@@ -423,7 +423,6 @@ main{
     color: var(--cream);
     text-align: center;
     padding: 35px 20px;
-    border-top: 3px solid var(--border);
     font-size: 0.9rem;
 }
 
@@ -489,8 +488,9 @@ textarea:focus-visible {
     .site-header {
         height: auto;
         min-height: 64px;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        grid-template-areas: "logo menu icons" "nav nav nav";
         align-items: center;
         gap: 15px;
         padding: 15px var(--side-space);
@@ -501,9 +501,24 @@ textarea:focus-visible {
       width: 85px;
    }
 
+   .menu-button {
+        grid-area: menu;
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
     .site-header nav {
+        grid-area: nav;
         display: block;
         width: 100%;
+    }
+   
+   .site-header nav.active {
+        display: block;
     }
 
     .nav-list {
@@ -517,12 +532,13 @@ textarea:focus-visible {
     }
 
     .header-icons {
-        gap: 20px
+        grid-area: icons;
+        gap: 10px
     }
    
     .header-icons img {
-       width: 25px;
-       height: 25px;
+       width: 24px;
+       height: 24px;
     }
    
     .privacy-header,
@@ -580,9 +596,9 @@ textarea:focus-visible {
 
     .privacy-footer-main,
     .terms-footer-main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px 20px;
+        display: flex;
+        grid-template-columns: column;
+        gap: 25px;
     }
 
     .privacy-footer-brand,
