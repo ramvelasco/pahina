@@ -28,13 +28,13 @@
 }
 
 /* === Nav === */
-.home-navbar {
+header.home-navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 24px 70px;
-  background-color: var(--dark);
-  color: var(--cream);
+  background-color: #3b2a22;   /* dark brown bar */
+  color: #f8f6e9;              /* cream text */
 }
 
 .home-logo {
@@ -56,19 +56,26 @@
   font-size: 1rem;
 }
 
-.home-nav-links a {
+header.home-navbar nav.home-nav-links a {
+  color: #f8f6e9;              /* cream links */
+  background: none;
+  font-weight: 400;
+  text-decoration: none;
   padding: 8px 22px;
   border-radius: 30px;
 }
 
-.home-nav-links a.active {
+/* the active page (Shop on the product page): brown pill, bold, underlined */
+header.home-navbar nav.home-nav-links a.active {
   background: linear-gradient(#7a6558, #5a463b);
+  color: #f8f6e9;
   font-weight: 700;
   text-decoration: underline;
 }
 
-.home-nav-links a:hover:not(.active) {
-  color: var(--pink);
+/* hover color on the other links */
+header.home-navbar nav.home-nav-links a:hover:not(.active) {
+  color: #ffbab3;              /* pink */
 }
 
 .home-navbar .header-icons {
@@ -87,7 +94,7 @@
   display: none;
   background: none;
   border: none;
-  color: var(--cream);
+  color: #f8f6e9;
   font-size: 1.8rem;
   cursor: pointer;
 }
@@ -152,7 +159,7 @@
 
 /* === Tablet === */
 @media (max-width: 1000px) {
-  .home-navbar { padding: 20px 30px; }
+  header.home-navbar { padding: 20px 30px; }
   .home-nav-links { gap: 10px; }
   .home-footer-main { padding: 30px 40px; flex-wrap: wrap; }
 }
@@ -165,7 +172,7 @@
 
 /* === Mobile nav === */
 @media (max-width: 650px) {
-  .home-navbar {
+  header.home-navbar {
     flex-wrap: wrap;
     padding: 16px 20px;
   }
