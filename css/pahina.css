@@ -1,6 +1,6 @@
-/* ==== Header + footer copied from the homepage ==== */
+/* ==== PAH/NA product page: header + footer ==== */
 
-/* colors and fonts, scoped so they don't clash with pahina.css */
+/* colors and fonts */
 .home-navbar,
 .home-footer,
 .home-copyright {
@@ -15,7 +15,7 @@
   line-height: 1.5;
 }
 
-/* same reset as the homepage, but only inside the header and footer */
+/* reset, only inside the header and footer */
 :where(.home-navbar, .home-footer, .home-copyright) * {
   margin: 0;
   padding: 0;
@@ -65,7 +65,7 @@ header.home-navbar nav.home-nav-links a {
   border-radius: 30px;
 }
 
-/* the active page (Shop on the product page): brown pill, bold, underlined */
+/* the active page (Shop): brown pill, bold, underlined */
 header.home-navbar nav.home-nav-links a.active {
   background: linear-gradient(#7a6558, #5a463b);
   color: #f8f6e9;
