@@ -493,7 +493,7 @@ textarea:focus-visible {
         grid-template-areas: "logo menu icons" "nav nav nav";
         align-items: center;
         gap: 15px;
-        padding: 15px var(--side-space);
+        padding: 16px var(--side-space);
     }
 
    .logo {
