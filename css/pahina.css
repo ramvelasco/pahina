@@ -1,199 +1,138 @@
-:root {
-  --brown: #5f4434;
-  --dark: #3b2a22;
-  --light-pink: #f5cbd6;
-  --pink: #f5cbd6;
-  --cream: #f8f6e9;
-  --heading-font: "Ibarra Real Nova", serif;
-  --header: #3b2a22;
-  --accent: #3b2a22;
-  --accent-dark: #271c16;
-  --page: #f8f4e6;
-  --primary: #5F4434;
-  --primary-dark: #271c16;
-  --muted: #595959;
-  --surface: #F8EDED;
-  --error: #B00020;
-  --radius: 0.5rem;
-  --inset: 70px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Don't Be Late Tee | PAH/NA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/pahina.css">
+</head>
+<body>
 
-.theme-rose { --accent: #b83b5e; --accent-dark: #8f2c47; --page: #fdf1ee; }
+  <header class="site-header">
+    <img class="logo" src="images/logo.png" alt="PAH/NA" width="131.25" height="50">
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+    <nav aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" aria-current="page">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-body { background: var(--page); color: var(--dark); font-family: "Raleway", sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
-main { flex: 1; width: 100%; }
-a { color: var(--dark); text-decoration: none; }
-img { max-width: 100%; height: auto; }
+    <div class="header-icons">
+      <img src="images/search.png" alt="Search" width="32" height="32">
+      <img src="images/fave.png" alt="Wishlist" width="32" height="32">
+      <img src="images/basket.png" alt="Cart" width="32" height="32">
+      <img src="images/profile.png" alt="Profile" width="32" height="32">
+    </div>
+  </header>
 
-input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  <main class="content">
+    <div class="product">
 
-:focus-visible { outline: 3px solid var(--dark); outline-offset: 2px; }
+      <p class="path"><a href="index.html">Home</a>/<a href="shop.html">Shop</a>/Don't Be Late Tee</p>
 
-/* ===== HEADER / NAV ===== */
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px var(--inset);
-  background-color: var(--dark);
-  color: var(--cream);
-}
-.site-header a { color: var(--cream); }
-.site-header :focus-visible { outline-color: var(--cream); }
+      <img class="main-pic" src="images/dblw.png" alt="White tee, front and back view" width="900">
 
-.logo { display: block; width: 105px; height: auto; }
+      <div class="other-colors">
+        <img src="images/dblbr.png" alt="Brown tee, front and back view" width="440">
+        <img src="images/dblbl.png" alt="Black tee, front and back view" width="440">
+      </div>
 
-.nav-list {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-  font-size: 1rem;
-}
-.nav-list a {
-  display: inline-block;
-  padding: 8px 22px;
-  border-radius: 30px;
-  font-weight: 500;
-}
-.nav-list a[aria-current="page"] {
-  background: linear-gradient(#7a6558, #5a463b);
-  font-weight: 700;
-  text-decoration: underline;
-}
-.nav-list a:hover:not([aria-current="page"]) { color: var(--pink); }
+      <div class="right">
+        <h1 id="product-name">Don't Be Late Tee</h1>
+        <p class="price">₱499</p>
+        <p class="desc">A casual tee for making room for new beginnings.<br>Lightweight and easy to style.</p>
+        <p class="fabric"><b>Fabric:</b> 100% Cotton</p>
 
-.header-icons { display: flex; align-items: center; gap: 18px; }
-.header-icons img { width: 42px; height: 42px; object-fit: contain; }
+        <fieldset class="option">
+          <legend>Color</legend>
+          <div class="colors">
+            <label><input type="radio" name="color" value="White" checked><span class="dot white"></span><span class="sr-only">White</span></label>
+            <label><input type="radio" name="color" value="Brown"><span class="dot brown"></span><span class="sr-only">Brown</span></label>
+            <label><input type="radio" name="color" value="Black"><span class="dot black"></span><span class="sr-only">Black</span></label>
+          </div>
+        </fieldset>
 
-/* ===== PRODUCT PAGE ===== */
-.content { padding: 24px var(--inset) 60px; }
+        <fieldset class="option">
+          <legend>Size</legend>
+          <div class="sizes">
+            <label><input type="radio" name="size" value="XXS"><span>XXS</span></label>
+            <label><input type="radio" name="size" value="XS"><span>XS</span></label>
+            <label><input type="radio" name="size" value="S"><span>S</span></label>
+            <label><input type="radio" name="size" value="M"><span>M</span></label>
+            <label><input type="radio" name="size" value="L"><span>L</span></label>
+            <label><input type="radio" name="size" value="XL"><span>XL</span></label>
+            <label><input type="radio" name="size" value="XXL"><span>XXL</span></label>
+          </div>
+        </fieldset>
 
-/* left: pictures | right: info (cqw makes the text follow the width of this area) */
-.product {
-  container-type: inline-size;
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  grid-template-areas: "path path" "pic info" "more info";
-  gap: 14px clamp(28px, 3.4vw, 70px);
-  max-width: 1700px;
-  margin: 0 auto;
-}
-.path { grid-area: path; font-size: clamp(13px, 1vw, 18px); }
-.path a:hover { text-decoration: underline; }
+        <div class="option">
+          <h3 id="qty-label">Quantity</h3>
+          <div class="quantity" role="group" aria-labelledby="qty-label">
+            <button type="button" aria-label="Decrease quantity">&minus;</button>
+            <span id="count" aria-live="polite">0</span>
+            <button type="button" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
 
-.main-pic { grid-area: pic; align-self: start; display: block; width: 100%; }
-.main-pic, .other-colors img { border: 1px solid var(--dark); border-radius: 10px; }
-.other-colors { grid-area: more; display: flex; gap: 14px; }
-.other-colors img { width: calc(50% - 7px); }
+        <p id="status" role="status"></p>
 
-/* INFORMATION */
-.right { grid-area: info; display: flex; flex-direction: column; justify-content: space-between; gap: 0.5em; font-size: clamp(14px, 1.7cqw, 34px); }
-.right h1 { font-family: var(--heading-font); font-size: 2.3em; font-weight: 700; line-height: 1.1; }
-.right .price { font-family: "Raleway", sans-serif; font-size: 1.9em; font-weight: 500; line-height: 1.2; }
-.right .desc { line-height: 1.45; }
+        <div class="buttons wide">
+          <button type="button" class="order">Order Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12h8M12.5 8.5 16 12l-3.5 3.5"/></svg>
+          </button>
+          <button type="button" class="cart">Add to Cart
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1 13H6L5 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+          </button>
+        </div>
+      </div>
 
-/* Color / Size / Quantity */
-.option { border: none; min-width: 0; }
-.option legend, .option h3 { font-size: 1em; font-weight: 700; padding: 0; margin-bottom: 0.55em; }
-.colors, .sizes { display: flex; flex-wrap: wrap; gap: 0.7em; }
-.colors label, .sizes label { position: relative; display: block; }
+    </div>
+  </main>
 
-.dot { display: block; width: 1.75em; height: 1.75em; border: 1px solid var(--dark); border-radius: 50%; cursor: pointer; }
-.white { background: #fff; }
-.brown { background: var(--brown); }
-.black { background: #000; }
-.colors input:checked + .dot { outline: 2px solid var(--accent); outline-offset: 3px; }
-.colors input:focus-visible + .dot, .sizes input:focus-visible + span { outline: 3px solid var(--dark); outline-offset: 3px; }
+  <footer class="product-footer">
+    <div class="product-footer-main">
+      <div class="product-footer-brand">
+        <p class="product-footer-logo">PAH/NA</p>
+        <p class="product-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
+      </div>
 
-.sizes span { display: block; padding: 0.28em 0.7em; font-size: 0.9em; font-weight: 700; border: 2px solid var(--dark); border-radius: 8px; cursor: pointer; }
-.sizes span:hover { background: rgba(59, 42, 34, 0.08); }
-.sizes input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+      <div class="product-footer-column">
+        <h4>EXPLORE</h4>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
 
-.quantity { display: flex; justify-content: space-between; align-items: center; width: 6.8em; padding: 0.2em 0.8em; border: 2px solid var(--dark); border-radius: 8px; }
-.quantity button { background: none; border: none; color: var(--dark); font-size: 1.5em; line-height: 1; cursor: pointer; }
-.quantity span { font-size: 0.8em; }
+      <div class="product-footer-column">
+        <h4>INFORMATION</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
 
-#status { font-size: 0.85em; font-weight: 600; }
-#status:empty { display: none; }
+      <div class="product-footer-column">
+        <h4>FOLLOW PAH/NA</h4>
+        <div class="product-socials">
+          <img src="images/fb.png" alt="Facebook" width="32" height="32">
+          <img src="images/ig.png" alt="Instagram" width="32" height="32">
+          <img src="images/messenger.png" alt="Messenger" width="32" height="32">
+          <img src="images/threads.png" alt="Threads" width="32" height="32">
+          <img src="images/x.png" alt="X" width="32" height="32">
+          <img src="images/tiktok.png" alt="TikTok" width="32" height="32">
+        </div>
+      </div>
+    </div>
+  </footer>
 
-/* buttons share the whole width */
-.buttons { display: flex; gap: 1.4em; }
-.buttons button { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0.8em 0; font: inherit; font-size: 0.9em; font-weight: 700; border: 2px solid var(--accent); border-radius: 10px; cursor: pointer; }
-.buttons svg { width: 1.1em; height: 1.1em; }
-.order { background: transparent; color: var(--accent); }
-.order:hover { background: rgba(59, 42, 34, 0.08); }
-.cart { background: var(--accent); color: #fff; }
-.cart:hover { background: var(--accent-dark); }
+  <div class="product-copyright">
+    <p>&copy; 2026 <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
+  </div>
 
-/* ===== CONTACT PAGE ===== */
-.contact-page { background: var(--cream); color: var(--brown); line-height: 1.6; }
-.contact-page main { max-width: 64rem; margin: 0 auto; padding: 24px 16px; }
-.contact-page main h1, .contact-page main h2 { font-family: var(--heading-font); line-height: 1.25; margin-bottom: 12px; }
-.contact-page main h1 { font-size: 2rem; }
-.contact-page main h2 { font-size: 1.375rem; }
-.contact-page main p { margin-bottom: 16px; }
-.contact-page main a { color: var(--primary); text-decoration: underline; }
-.contact-page main a:hover { color: var(--primary-dark); }
+  <script src="js/pahina.js"></script>
 
-.intro, .required, .hint { color: var(--muted); }
-.required { font-weight: normal; }
-.hint { font-size: 0.9rem; }
-
-.page-layout { display: flex; flex-direction: column; gap: 32px; }
-.form-group { margin-bottom: 20px; }
-.contact-form label { display: block; margin-bottom: 4px; font-weight: bold; }
-.contact-form input, .contact-form select, .contact-form textarea { display: block; width: 100%; padding: 12px; font: inherit; color: var(--brown); background: #fff; border: 2px solid var(--light-pink); border-radius: var(--radius); }
-.contact-form textarea { resize: vertical; }
-.contact-form :user-invalid { border-color: var(--error); }
-
-.button { display: inline-block; padding: 12px 24px; font: inherit; font-weight: bold; color: #fff; background: var(--primary); border: 2px solid var(--primary); border-radius: var(--radius); cursor: pointer; }
-.button:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
-
-.contact-info { padding: 16px 20px; background: var(--surface); border-radius: var(--radius); }
-.spaced { margin-top: 16px; }
-address { font-style: normal; }
-
-/* ===== FOOTER ===== */
-.product-footer { background: var(--light-pink); padding: 30px 90px; }
-.product-footer-main { display: flex; justify-content: space-between; gap: 40px; }
-.product-footer-brand { max-width: 460px; }
-.product-footer-logo { font-family: var(--heading-font); font-size: 5.5rem; line-height: 1.1; color: var(--brown); }
-.product-footer-text { font-size: 0.85rem; margin-top: 25px; }
-.product-footer-column { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
-.product-footer-column h4 { font-family: var(--heading-font); font-size: 0.8rem; margin-bottom: 6px; }
-.product-footer-column a { font-size: 0.8rem; }
-.product-footer-column a:hover { color: var(--cream); }
-.product-socials { display: grid; grid-template-columns: repeat(3, 44px); gap: 16px 24px; }
-.product-socials img { width: 44px; height: 44px; object-fit: contain; }
-.product-copyright { background: var(--header); color: var(--cream); text-align: center; padding: 35px 20px; font-size: 0.9rem; }
-.product-copyright a { color: var(--cream); }
-
-/* ===== BIGGER SCREENS ===== */
-@media (min-width: 768px) {
-  .contact-page main { padding: 32px; }
-  .page-layout { flex-direction: row; align-items: flex-start; }
-  .contact-form { flex: 2; }
-  .contact-info { flex: 1; }
-}
-
-/* ===== SMALLER SCREENS ===== */
-@media (max-width: 800px) {
-  :root { --inset: 20px; }
-
-  .site-header { flex-wrap: wrap; gap: 12px; padding: 20px var(--inset); }
-  .site-header nav { order: 3; width: 100%; }
-  .nav-list { justify-content: center; flex-wrap: wrap; gap: 8px 12px; }
-  .header-icons { gap: 18px; }
-  .header-icons img { width: 36px; height: 36px; }
-
-  /* everything stacks in one column on phones */
-  .product { grid-template-columns: 1fr; grid-template-areas: "path" "pic" "more" "info"; }
-  .right { gap: 0.9em; font-size: clamp(16px, 4.2vw, 22px); }
-  .product-footer-main { flex-direction: column; }
-  .content { padding-bottom: 50px; }
-  .product-footer { padding: 30px 20px; }
-  .product-footer-logo { font-size: 3.5rem; }
-}
+</body>
+</html>
