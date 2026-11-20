@@ -523,25 +523,19 @@ textarea:focus-visible {
    .site-header nav.active {
         display: block;
     }
-
-    .nav-list {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px 15px;
-    }
-
-    .nav-list a {
-        font-size: 14px;
-    }
+   
+   .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+    gap: 5px;
+   }
+   
+  .nav-links.open { display: flex; }
 
     .header-icons {
-        grid-area: icons;
-        gap: 10px
-    }
-   
-    .header-icons img {
-       width: 24px;
-       height: 24px;
+        display: none;
     }
    
     .privacy-header,
