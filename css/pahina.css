@@ -1,6 +1,7 @@
 :root {
   --brown: #5f4434;
   --dark: #3b2a22;
+  --pink: #ffbab3;
   --light-pink: #f5cbd6;
   --cream: #f8f6e9;
   --heading-font: "Ibarra Real Nova", serif;
@@ -31,9 +32,95 @@ input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; p
 
 :focus-visible { outline: 3px solid var(--dark); outline-offset: 2px; }
 
-/* keep the product page header at its original height (delete these two lines to match the home page's 88px) */
-.home-navbar { min-height: 108px; }
-@media (max-width: 800px) { .home-navbar { min-height: 0; } }
+/* ===== HEADER / NAV (88px tall) ===== */
+.home-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 70px;
+  background-color: var(--dark);
+  color: var(--cream);
+  line-height: 1.5;
+}
+
+.home-logo { margin: -10px 0; display: block; }
+.home-logo img { display: block; height: 60px; width: auto; }
+
+.home-nav-links { display: flex; gap: 40px; font-size: 1rem; }
+.home-nav-links a { color: var(--cream); padding: 8px 22px; border-radius: 30px; }
+.home-nav-links a.active {
+  background: linear-gradient(#7a6558, #5a463b);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.home-nav-links a:hover:not(.active) { color: var(--pink); }
+
+.header-icons { display: flex; align-items: center; gap: 13px; }
+.header-icons img { width: 32px; height: 32px; object-fit: contain; }
+
+.home-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.home-navbar :focus-visible { outline-color: var(--cream); }
+
+/* ===== FOOTER ===== */
+.home-footer { background: var(--light-pink); line-height: 1.5; }
+
+.home-footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 30px 90px;
+}
+
+.home-footer-brand { max-width: 460px; }
+
+.home-footer-logo {
+  font-family: var(--heading-font);
+  font-size: 5.5rem;
+  line-height: 1.1;
+  color: var(--brown);
+}
+
+.home-footer-text { font-size: 0.85rem; margin-top: 25px; }
+
+.home-footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 10px;
+}
+
+.home-footer-column h2 {
+  font-family: var(--heading-font);
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.home-footer-column a { font-size: 0.8rem; }
+.home-footer-column a:hover { color: var(--brown); text-decoration: underline; }
+
+.home-socials {
+  display: grid;
+  grid-template-columns: repeat(3, 44px);
+  gap: 16px 24px;
+}
+.home-socials img { width: 44px; height: 44px; object-fit: contain; }
+
+.home-copyright {
+  background: var(--dark);
+  color: var(--cream);
+  text-align: center;
+  padding: 35px 20px;
+  font-size: 0.9rem;
+}
+.home-copyright a { color: var(--cream); text-decoration: underline; }
 
 /* ===== PRODUCT PAGE ===== */
 .content { padding: 24px var(--inset) 60px; }
@@ -131,9 +218,25 @@ address { font-style: normal; }
   .contact-info { flex: 1; }
 }
 
+/* ===== TABLET ===== */
+@media (max-width: 1000px) {
+  .home-footer-main { padding: 30px 40px; flex-wrap: wrap; }
+}
+
 /* ===== SMALLER SCREENS ===== */
 @media (max-width: 800px) {
   :root { --inset: 20px; }
+
+  /* navbar on phones */
+  .home-navbar { flex-wrap: wrap; padding: 20px; gap: 12px; }
+  .home-menu-button { display: block; order: 2; margin-left: auto; }
+  .header-icons { order: 1; }
+  .home-nav-links { display: none; order: 3; width: 100%; flex-direction: column; align-items: center; gap: 8px; }
+  .home-nav-links.open { display: flex; }
+
+  /* footer on phones */
+  .home-footer-main { flex-direction: column; padding: 30px 20px; }
+  .home-footer-logo { font-size: 3.5rem; }
 
   /* everything stacks in one column on phones */
   .product { grid-template-columns: 1fr; grid-template-areas: "path" "pic" "more" "info"; }
