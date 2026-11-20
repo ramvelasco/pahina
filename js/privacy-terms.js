@@ -74,17 +74,16 @@ const menuButton = document.getElementById("menuButton");
 const navLinks = document.getElementById("navLinks");
 
 if (menuButton && navLinks) {
+  // when the button is clicked, show or hide the menu
+  menuButton.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
 
-    menuButton.addEventListener("click", function () {
-
-        const isOpen = navLinks.classList.toggle("active");
-
-        menuButton.setAttribute("aria-expanded", isOpen);
-
-        menuButton.setAttribute(
-            "aria-label",
-            isOpen ? "Close menu" : "Open menu"
-        );
+    // tell screen readers if the menu is open or closed
+    const isOpen = navLinks.classList.contains("open");
+    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  });
+}
 
         menuButton.innerHTML = isOpen ? "&times;" : "&#9776;";
     });
