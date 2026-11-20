@@ -43,12 +43,19 @@ input, textarea, button, select {
     font-family: var(--body-font);
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 /* ========================================
    2. COLOR VARIABLES, FONTS & SPACING
    ======================================== */
 
 :root{
     /* BRAND COLORS */
+    --brown: #5f4434;
+    --dark: #3b2a22;
     --primary: #5f4434;
     --primary-dark: #3b2a22;
     --secondary: #271c16;
@@ -345,62 +352,56 @@ main{
 /* ========================================
    9. FOOTER
    ======================================== */
-<footer class="home-footer">
-    <div class="home-footer-main">
-      <div class="home-footer-brand">
-        <p class="home-footer-logo">PAH/NA</p>
-        <p class="home-footer-text">Every page holds a story. <strong>PAH/NA</strong> is here to celebrate your voice, empower women, and keep your story going through every season of life.</p>
-      </div>
+.product-footer { background: var(--light-pink); color: var(--dark); }
 
-      <nav class="home-footer-column" aria-label="Explore">
-        <h2><strong>EXPLORE</strong></h2>
-        <a href="index.html">Home</a>
-        <a href="index.html#shop">Shop</a>
-        <a href="index.html#about">About Us</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
+.product-footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 40px 90px;
+}
 
-      <nav class="home-footer-column" aria-label="Information">
-        <h2><strong>INFORMATION</strong></h2>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-      </nav>
+.product-footer-brand { max-width: 460px; }
+.product-footer-logo { font-family: var(--heading-font); font-size: 5.5rem; line-height: 1.1; color: var(--brown); }
+.product-footer-text { font-size: 1rem; line-height: 1.6; margin-top: 20px; }
 
-      <div class="home-footer-column">
-        <h2>><strong>FOLLOW PAH/NA></strong></h2>
-        <div class="home-socials">
-          <img src="images/fb.png" alt="Facebook" width="32" height="32">
-          <img src="images/ig.png" alt="Instagram" width="32" height="32">
-          <img src="images/messenger.png" alt="Messenger" width="32" height="32">
-          <img src="images/threads.png" alt="Threads" width="32" height="32">
-          <img src="images/x.png" alt="X" width="32" height="32">
-          <img src="images/tiktok.png" alt="TikTok" width="32" height="32">
-        </div>
-      </div>
-    </div>
+.product-footer-column { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
+.product-footer-column h2 {
+  font-family: var(--heading-font);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  color: var(--brown);
+}
+.product-footer-column a { display: inline-block; padding: 6px 0; font-size: 1rem; }
+.product-footer-column a:hover { color: var(--brown); text-decoration: underline; }
 
-    <div class="home-copyright">
-      <p>&copy; <span id="year">2026</span> <strong>PAH/NA</strong> || <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a></p>
-    </div>
-  </footer>
+.product-socials { display: grid; grid-template-columns: repeat(3, 44px); gap: 16px 24px; }
+.product-socials img { width: 44px; height: 44px; object-fit: contain; }
 
-  <!-- mobile menu button + footer year -->
-  <script>
-    var menuButton = document.getElementById("menuButton");
-    var navLinks = document.getElementById("navLinks");
+.product-copyright { background: var(--dark); color: var(--cream); text-align: center; padding: 28px 20px; font-size: 1rem; }
+.product-copyright a { color: var(--cream); text-decoration: underline; }
+.product-copyright a:hover { color: var(--light-pink); }
 
-    if (menuButton && navLinks) {
-      menuButton.addEventListener("click", function () {
-        var isOpen = navLinks.classList.toggle("open");
-        menuButton.setAttribute("aria-expanded", isOpen);
-      });
-    }
+/* visible keyboard focus: dark outline on the pink footer, cream outline on the dark copyright bar */
+.product-footer a:focus-visible { outline: 3px solid var(--dark); outline-offset: 2px; }
+.product-copyright a:focus-visible { outline-color: var(--cream); }
 
-    var yearSpan = document.getElementById("year");
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  </script>
+/* footer on tablet */
+@media (max-width: 1000px) {
+  .product-footer-main { padding: 36px 40px; flex-wrap: wrap; }
+  .product-footer-brand { flex-basis: 100%; max-width: none; }
+}
+
+/* footer on mobile */
+@media (max-width: 800px) {
+  .product-footer-main { flex-direction: column; gap: 24px; padding: 30px 20px; }
+  .product-footer-logo { font-size: 3.5rem; }
+  .product-socials { grid-template-columns: repeat(auto-fit, 44px); gap: 12px; }
+}
 
 /* ========================================
    11. KEYBOARD ACCESSIBILITY
@@ -429,13 +430,6 @@ textarea:focus-visible {
 
     .header-icons {
         gap: 12px
-    }
-
-    .privacy-footer-main,
-    .terms-footer-main {
-        display: grid;
-        grid-template-columns: repeat (2, 1fr);
-        gap: 30px
     }
 
     .privacy-header,
@@ -547,33 +541,6 @@ textarea:focus-visible {
 
     .agreement-buttons {
         flex-wrap: wrap
-    }
-
-    .privacy-footer,
-    .terms-footer {
-        padding: 30px var(--side-space);
-    }
-
-    .privacy-footer-main,
-    .terms-footer-main {
-        display: flex;
-        grid-template-columns: column;
-        gap: 25px;
-    }
-
-    .privacy-footer-brand,
-    .terms-footer-brand {
-        grid-column: 1 / -1;
-    }
-
-    .privacy-footer-logo,
-    .terms-footer-logo {
-        font-size: 2.7rem;
-    }
-
-    .privacy-footer-text,
-    .terms-footer-text {
-        font-size: 12px;
     }
 }
 
